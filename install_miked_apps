@@ -1,0 +1,28 @@
+#!/bin/sh
+echo "INSTALLING MIKED APPS..." 
+echo "SOME USEFUL TOOLS FOR EDITING, BROWSING, ETC."
+
+apt-get update
+apt-get install -y chromium-browser
+apt-get install -y meld
+apt-get install -y htop
+apt-get install -y i3
+apt-get install -y ltrace 
+apt-get install -y rtrace
+apt-get install -y nmap
+apt-get install -y gdb
+apt-get install -y qemu
+apt-get install -y qemu-system-arm qemu-system-x86
+apt-get install -y python python-pip
+apt-get install -y binutils
+apt-get install -y binutils-arm-none-eabi
+apt-get install -y cmake
+apt-get install -y git
+
+# put some more cool things here
+
+# Some applications
+apt-get install -y tftp tftp-setver
+apt-get install -y ssh
+
+echo "INSTALLING MIKED APPS... complete." 

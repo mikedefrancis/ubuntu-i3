@@ -1,0 +1,20 @@
+#!/bin/sh
+
+echo "WARNING, This installation will destroy your existing .bashrc file! \nDo you wish to continue?(y or n) [ENTER]:"
+read choice
+case $choice in
+    [Nn]* ) echo 'Aborting.'; exit;;
+    [Yy]* ) echo "proceeding with install.";;
+    * ) echo 'Aborting.'; exit;; 
+esac
+
+echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..." 
+cp .bashrc ~/.bashrc
+cp .xsession ~/.xsession
+sudo cp remembercreds /usr/bin/remembercreds
+sudo cp forgetcreds /usr/bin/forgetcreds
+cp .cdb ~/.cdb
+cp .gdbinit ~/.gdbinit
+sudo cp diffconfig /usr/bin/diffconfig
+
+echo "COPYING FILES... DONE."

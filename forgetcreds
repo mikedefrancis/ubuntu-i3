@@ -1,0 +1,9 @@
+#!/bin/bash
+#To prevent having to type credentials many times. Note that git credential caching stores user/pass in ram not disk
+#Disables the git cacheing features and flushes the cache.
+# forget any cached creds
+git credential-cache exit
+# disable credential caching
+git config --global --unset credential.helper
+git config --global --remove-section credential
+echo -e "Automated git cache storage.No Longer Caching GIT Credentials. Cache Flushed."

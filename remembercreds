@@ -1,0 +1,6 @@
+#!/bin/bash
+#To prevent having to type credentials many times. Note that git credential caching stores user/pass in ram not disk
+#Use forgetcreds in order to reverse this command. It disables the caching features and flushes the cache.
+# enable credential caching
+git config --global credential.helper cache
+echo -e "Automated git cache storage. Now Caching Git Credentials for up to 900 seconds."
