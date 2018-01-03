@@ -1,4 +1,6 @@
 #!/bin/bash
+#Copyright 2017, Mike DeFrancis
+#No license is required to use or modify this software.
 #To prevent having to type credentials many times. Note that git credential caching stores user/pass in ram not disk
 #Use forgetcreds in order to reverse this command. It disables the caching features and flushes the cache.
 # enable credential caching
