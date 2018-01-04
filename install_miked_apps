@@ -18,6 +18,7 @@ apt-get install -y binutils
 apt-get install -y binutils-arm-none-eabi
 apt-get install -y cmake
 apt-get install -y git
+apt-get install -y zsh
 
 # put some more cool things here
 
