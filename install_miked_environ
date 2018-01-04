@@ -16,5 +16,6 @@ sudo cp forgetcreds /usr/bin/forgetcreds
 cp .cdb ~/.cdb
 cp .gdbinit ~/.gdbinit
 sudo cp diffconfig /usr/bin/diffconfig
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 echo "COPYING FILES... DONE."
