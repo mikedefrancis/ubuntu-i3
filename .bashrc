@@ -216,5 +216,10 @@ alias vmware-fix='vmware-user-suid-wrapper'
 alias calc='gnome-calculator'
 alias calculator='gnome-calculator'
 
+alias gitstat='git status'
+alias ggg='git status'
+alias bb='bash'
+alias zz='zsh'
+
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
