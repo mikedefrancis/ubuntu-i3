@@ -2,31 +2,31 @@
 echo "INSTALLING MIKED APPS..." 
 echo "SOME USEFUL TOOLS FOR EDITING, BROWSING, ETC."
 
-apt-get update
-apt-get install -y chromium-browser
-apt-get install -y meld
-apt-get install -y htop
-apt-get install -y i3
-apt-get install -y ltrace 
-apt-get install -y rtrace
-apt-get install -y nmap
-apt-get install -y gdb
-apt-get install -y qemu
-apt-get install -y qemu-system-arm qemu-system-x86
-apt-get install -y python python-pip
-apt-get install -y binutils
-apt-get install -y binutils-arm-none-eabi
-apt-get install -y cmake
-apt-get install -y git
-apt-get install -y zsh
+sudo apt-get update
+sudo apt-get install -y chromium-browser
+sudo apt-get install -y meld
+sudo apt-get install -y htop
+sudo apt-get install -y i3
+sudo apt-get install -y ltrace 
+sudo apt-get install -y rtrace
+sudo apt-get install -y nmap
+sudo apt-get install -y gdb
+sudo apt-get install -y qemu
+sudo apt-get install -y qemu-system-arm qemu-system-x86
+sudo apt-get install -y python python-pip
+sudo apt-get install -y binutils
+sudo apt-get install -y binutils-arm-none-eabi
+sudo apt-get install -y cmake
+sudo apt-get install -y git
+sudo apt-get install -y zsh
 # apt-get install -y fonts-powerline
-apt-get install -y tmux
-apt-get install zsh-antigen
+sudo apt-get install -y tmux
+sudo apt-get install zsh-antigen
 
 # put some more cool things here
 
 # Some applications
-apt-get install -y tftp tftp-setver
-apt-get install -y ssh
+sudo apt-get install -y tftp tftp-setver
+sudo apt-get install -y ssh
 
 echo "INSTALLING MIKED APPS... complete." 
