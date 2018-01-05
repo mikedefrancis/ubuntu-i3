@@ -60,6 +60,11 @@ ZSH_THEME="bira"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  z
+  history
+  zsh-autosuggestions
+  colored-man-pages
+  auto-ls
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -202,6 +207,7 @@ alias calc='gnome-calculator'
 alias calculator='gnome-calculator'
 
 alias gitstat='git status'
+alias gstat='git status'
 alias ggg='git status'
 alias bb='bash'
 alias zz='zsh'
@@ -209,4 +215,8 @@ alias zz='zsh'
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
+source ~/.oh-my-zsh/plugins/auto-ls.zsh
 
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
