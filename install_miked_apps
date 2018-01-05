@@ -21,6 +21,7 @@ apt-get install -y git
 apt-get install -y zsh
 # apt-get install -y fonts-powerline
 apt-get install -y tmux
+apt-get install zsh-antigen
 
 # put some more cool things here
 
