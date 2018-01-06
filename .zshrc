@@ -61,8 +61,8 @@ ZSH_THEME="bira"
 plugins=(
   git
   z
-  history
-  zsh-autosuggestions
+  # history
+  # zsh-autosuggestions
   colored-man-pages
 )
 
@@ -143,7 +143,7 @@ alias dfind='find -type d -name'
 alias mfind='find -name'      
 alias vi='vim'                                               
 alias vihelp='echo use vi +[LineNum] [file] || vi [file]'    
-alias cat='cat -n'    
+alias catl='cat -n' #cat with some lines numbers    
                                                     
 # added the following for the bookmarking script    
 if [ -f ~/.cdb ]; then    

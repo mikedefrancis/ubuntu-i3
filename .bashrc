@@ -154,8 +154,9 @@ alias dfind='find -type d -name'
 alias mfind='find -name'      
 alias vi='vim'                                               
 alias vihelp='echo use vi +[LineNum] [file] || vi [file]'    
-alias cat='cat -n'    
-                                                    
+# alias cat='cat -n'
+alias catl='cat -n' #cat with some lines numbers         
+
 # added the following for the bookmarking script    
 if [ -f ~/.cdb ]; then    
     source ~/.cdb    
@@ -223,3 +224,5 @@ alias zz='zsh'
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
