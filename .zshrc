@@ -169,6 +169,7 @@ alias srcbash='source ~/.bashrc'
 # for using my todo list                  
 alias cnotes='cat ~/.notes.txt | more'    
 alias notes='cnotes'                        
+alias bnotes='less -g ~/.notes.txt'
 alias allnotes='vim ~/.archivenotes.txt'    
 alias vnotes='vim ~/.notes.txt'    
 alias editnotes='vnotes'    
@@ -210,6 +211,7 @@ alias gstat='git status'
 alias ggg='git status'
 alias bb='bash'
 alias zz='zsh'
+
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
