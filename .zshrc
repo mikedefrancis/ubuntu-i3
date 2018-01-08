@@ -62,7 +62,7 @@ plugins=(
   git
   z
   # history
-  # zsh-autosuggestions
+  zsh-autosuggestions
   colored-man-pages
 )
 
@@ -164,7 +164,9 @@ alias src='source'
 # for editing this file           
 alias editbash='vim ~/.bashrc'      
 alias srcbash='source ~/.bashrc'    
-        
+alias zsource='source ~/.zshrc'
+alias srcz='source ~/.zshrc'
+alias sourcez='source ~/.zshrc'
                                 
 # for using my todo list                  
 alias cnotes='cat ~/.notes.txt | more'    
@@ -206,6 +208,10 @@ alias vmware-fix='vmware-user-suid-wrapper'
 alias calc='gnome-calculator'
 alias calculator='gnome-calculator'
 
+alias gcommit='git commit'
+alias gpush='git push'
+alias gcheckout='git checkout'
+alias gpull='git pull'
 alias gitstat='git status'
 alias gstat='git status'
 alias ggg='git status'
