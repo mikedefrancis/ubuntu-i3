@@ -191,6 +191,9 @@ alias tunnel2='rm ~/tunnel2;ln -sf "$(pwd)" ~/tunnel2'
 alias tunnel3='rm ~/tunnel3;ln -sf "$(pwd)" ~/tunnel3'
        
 alias ff='nautilus .'
+alias folder='nautilus --no-desktop .'
+alias folders='nautilus --no-desktop .'
+alias nautilusi3='nautilus --no-desktop .'
 
 alias v='vim'
 
@@ -214,6 +217,7 @@ alias gcheckout='git checkout'
 alias gpull='git pull'
 alias gitstat='git status'
 alias gstat='git status'
+alias gadd='git add'
 alias ggg='git status'
 alias bb='bash'
 alias zz='zsh'
