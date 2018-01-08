@@ -18,12 +18,13 @@ cp .gdbinit ~/.gdbinit
 sudo cp diffconfig /usr/bin/diffconfig
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-curl -L https://git.io/auto-ls > ~/.oh-my-zsh/plugins/auto-ls.zsh
+# curl -L https://git.io/auto-ls > ~/.oh-my-zsh/plugins/auto-ls.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo ~/.fzf/install
 chsh -s $(which zsh) #set zsh as default shell
 sudo cp .zshrc ~/.zshrc
+sudo cp auto-ls.zsh ~/.oh-my-zsh/plugins/
 # cp bullet-train.zsh-theme ~/.oh-my-zsh/themes/
 
 echo "COPYING FILES... DONE."

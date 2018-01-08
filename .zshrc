@@ -213,6 +213,8 @@ alias bb='bash'
 alias zz='zsh'
 
 
+alias nc4242='netcat -l -p 4242'
+
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
