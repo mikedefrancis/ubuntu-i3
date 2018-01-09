@@ -92,6 +92,13 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# @MPD some custom bindings to make it easier to work with multiple displays
+bindsym $mod+n move workspace to output left
+bindsym $mod+m move workspace to output right
+#
+# bindsym $mod+Shift+n move container to output right
+# bindsym $mod+Shift+m move container to output left
+
 # switch to workspace
 bindsym $mod+grave workspace 10
 bindsym $mod+1 workspace 1
@@ -161,6 +168,5 @@ bar {
 
 
 # @MPD startup for vmware
-exec vmware-user-suid-wrapper
 exec feh --bg-scale ~/.config/i3/arc_alps.jpeg
-
+exec vmware-user-suid-wrapper
