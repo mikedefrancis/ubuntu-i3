@@ -61,8 +61,8 @@ ZSH_THEME="bira"
 plugins=(
   git
   z
-  # history
-  zsh-autosuggestions
+  history
+  # zsh-autosuggestions
   colored-man-pages
 )
 
@@ -233,3 +233,4 @@ source ~/.oh-my-zsh/plugins/auto-ls.zsh
 source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias kernelversion='uname -a'
