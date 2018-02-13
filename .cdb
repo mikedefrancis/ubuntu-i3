@@ -27,12 +27,27 @@ function cdb() {
             if [ -f ~/.cd_bookmarks/$1 ] ; then 
                 rm ~/.cd_bookmarks/"$1" ;
             else
-                echo "Oops, forgot to specify the bookmark" ;
+                if [ -z "$1" ] ; then
+                    echo "Oops, forgot to specify the bookmark" ;
+                fi
             fi    
             ;;
         # list bookmarks
         -l) shift
-            ls ~/.cd_bookmarks/;cat ~/.cd_bookmarks/* | more;
+            echo ""
+            echo "BOOKMARK   || cd PATH"
+            for filename in ~/.cd_bookmarks/*; do
+                markname=`basename "$filename"`
+                length=${#markname}
+                spaces=$(expr 10 - $length)
+                printf "$markname "
+                for i in $(seq 1 $spaces); do
+                    printf " "
+                done
+                printf "|| "
+                cat "$filename" | more
+            done
+            echo ""
             ;;
          *) echo "$USAGE" ;
             ;;
