@@ -244,6 +244,9 @@ alias ggg='git status'
 alias bb='bash'
 alias zz='zsh'
 
+alias mkill='kill -9'
+alias killall='kill -9'
+alias forcekill='kill -9'
 
 alias nc4242='netcat -l -p 4242'
 
