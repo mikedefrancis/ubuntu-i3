@@ -157,20 +157,47 @@ alias vihelp='echo use vi +[LineNum] [file] || vi [file]'
 # alias cat='cat -n'
 alias catl='cat -n' #cat with some lines numbers         
 
-# added the following for the bookmarking script    
-if [ -f ~/.cdb ]; then    
-    source ~/.cdb    
-fi    
-                                
-#some aliases to use cdb    
-alias bmark='cdb -c'    
-alias bmk='cdb -c'      
-alias bjump='cdb -g'    
-alias bgo='cdb -g'       
-alias bmarks='cdb -l'    
-alias bmks='cdb -l'    
-alias bdel='cdb -d'    
-                          
+                         
+# added the following for the bookmarking script
+if [ -f ~/.cdb ]; then
+    source ~/.cdb
+fi
+
+alias save='cdb -d save; cdb -c save'
+alias ret='cdb -g save'
+
+alias save1='cdb -d save1; cdb -c save1'
+alias ret1='cdb -g save1'
+
+alias save2='cdb -d save2; cdb -c save2'
+alias ret2='cdb -g save2'
+
+alias save3='cdb -d save3; cdb -c save3'
+alias ret3='cdb -g save3'
+
+alias save4='cdb -d save4; cdb -c save4'
+alias ret4='cdb -g save4'
+
+alias save5='cdb -d save5; cdb -c save5'
+alias ret5='cdb -g save5'
+
+alias mark='cdb -c'
+
+alias places='cdb -l'
+alias marks='cdb -l'
+alias saves='cdb -l'
+alias goto='cdb -g'
+
+#some aliases to use cdb
+alias bmark='cdb -c'
+alias bmk='cdb -c'
+alias bjump='cdb -g'
+alias bgo='cdb -g'
+alias bmarks='cdb -l'
+alias bmks='cdb -l'
+alias bdel='cdb -d'
+
+
 alias src='source'    
                                
 # for editing this file           
