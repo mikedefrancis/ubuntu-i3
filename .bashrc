@@ -204,17 +204,20 @@ alias src='source'
 alias editbash='vim ~/.bashrc'      
 alias srcbash='source ~/.bashrc'    
         
-                                
-# for using my todo list                  
-alias cnotes='cat ~/.notes.txt | more'    
-alias notes='cnotes'                        
-alias allnotes='vim ~/.archivenotes.txt'    
-alias vnotes='vim ~/.notes.txt'    
+                             
+# for using my todo list
+# using save5 / ret5 as a scratch space to jump forward and back between folders
+alias cnotes='ls ~/notes/;cat ~/notes/notes.txt | more'    
+alias notes='vnotes'                        
+alias bnotes='less -g ~/notes/notes.txt'
+alias allnotes='vim ~/notes/archivenotes.txt'    
+alias vnotes='save5;cd ~/notes;vim ~/notes/notes.txt;ret5'    
 alias editnotes='vnotes'    
 alias enotes='vnotes'                                   
 alias dnotes='echo USE delnotes to delete all notes'    
-alias delnotes='savenotes;rm ~/.notes.txt'
-alias savenotes='cp ~/.notes.txt ~/.prevnotes.txt;cat ~/.prevnotes.txt >> ~/.archivenotes.txt'
+alias delnotes='savenotes;rm ~/notes/notes.txt'
+alias savenotes='cp ~/notes/notes.txt ~/notes/prevnotes.txt;cat ~/notes/prevnotes.txt >> ~/notes/archivenotes.txt'
+
 
 alias logout='i3-msg exit'
 

@@ -68,6 +68,17 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=5000               #Number of history entries to save to disk
+#HISTDUP=erase               #Erase duplicates in the history file
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -190,17 +201,18 @@ alias zsource='source ~/.zshrc'
 alias srcz='source ~/.zshrc'
 alias sourcez='source ~/.zshrc'
                                 
-# for using my todo list                  
-alias cnotes='cat ~/.notes.txt | more'    
-alias notes='cnotes'                        
-alias bnotes='less -g ~/.notes.txt'
-alias allnotes='vim ~/.archivenotes.txt'    
-alias vnotes='vim ~/.notes.txt'    
+# for using my todo list
+# using save5 / ret5 as a scratch space to jump forward and back between folders
+alias cnotes='ls ~/notes/;cat ~/notes/notes.txt | more'    
+alias notes='vnotes'                        
+alias bnotes='less -g ~/notes/notes.txt'
+alias allnotes='vim ~/notes/archivenotes.txt'    
+alias vnotes='save5;cd ~/notes;vim ~/notes/notes.txt;ret5'    
 alias editnotes='vnotes'    
 alias enotes='vnotes'                                   
 alias dnotes='echo USE delnotes to delete all notes'    
-alias delnotes='savenotes;rm ~/.notes.txt'
-alias savenotes='cp ~/.notes.txt ~/.prevnotes.txt;cat ~/.prevnotes.txt >> ~/.archivenotes.txt'
+alias delnotes='savenotes;rm ~/notes/notes.txt'
+alias savenotes='cp ~/notes/notes.txt ~/notes/prevnotes.txt;cat ~/notes/prevnotes.txt >> ~/notes/archivenotes.txt'
 
 alias logout='i3-msg exit'
 
