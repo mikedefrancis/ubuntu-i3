@@ -34,7 +34,7 @@ function cdb() {
             ;;
         # list bookmarks
         -l) shift
-            echo ""
+            echo " (note for save,save1,save2,etc. use ret,ret1,ret2,etc. to jump there.)"
             echo "BOOKMARK   || cd PATH"
             for filename in ~/.cd_bookmarks/*; do
                 markname=`basename "$filename"`

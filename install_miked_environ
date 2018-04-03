@@ -26,7 +26,7 @@ chsh -s $(which zsh) #set zsh as default shell
 sudo cp .zshrc ~/.zshrc
 sudo cp auto-ls.zsh ~/.oh-my-zsh/plugins/
 sudo cp i3-config ~/.config/i3/config
-sudo cp ../images/backgrounds/arc_alps.jpeg ~/.config/i3/
+# sudo cp ../images/backgrounds/arc_alps.jpeg ~/.config/i3/
 # cp bullet-train.zsh-theme ~/.oh-my-zsh/themes/
 
 echo "COPYING FILES... DONE."
