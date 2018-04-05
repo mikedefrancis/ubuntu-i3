@@ -168,5 +168,5 @@ bar {
 
 
 # @MPD startup for vmware
-exec feh --bg-scale ~/.config/i3/arc_alps.jpeg
+#exec feh --bg-scale ~/.config/i3/arc_alps.jpeg
 exec vmware-user-suid-wrapper
