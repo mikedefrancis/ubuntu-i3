@@ -618,7 +618,7 @@ files."""
 
         def __init__(self, dashboard):
             gdb.Command.__init__(self, 'dashboard -layout', gdb.COMMAND_USER)
-            self.dashboard = dashboard
+           self.dashboard = dashboard
 
         def invoke(self, arg, from_tty):
             arg = Dashboard.parse_arg(arg)
@@ -827,7 +827,7 @@ class Source(Dashboard.Module):
         return {
             'context': {
                 'doc': 'Number of context lines.',
-                'default': 5,
+                'default': 15,
                 'type': int,
                 'check': check_ge_zero
             }
@@ -941,7 +941,7 @@ instructions constituting the current statement are marked, if available."""
         return {
             'context': {
                 'doc': 'Number of context instructions.',
-                'default': 3,
+                'default': 7,
                 'type': int,
                 'check': check_ge_zero
             },
