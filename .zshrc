@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
   export ZSH=~/.oh-my-zsh
 
+export EDITOR='vim'
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -155,11 +157,18 @@ alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+alias .6='cd ../../../../../..'
+alias .7='cd ../../../../../../..'
 alias c='clear'
-# save standard err and standard out to make output file:    
+alias cc='clear'
+alias clear='clear;ls'
+
+# save standard err and standard out to make output file:
 alias make='make'
-alias mmake='make |& tee latest_make_output.txt'
-alias mclean='make clean'
+alias makec='make clean;ls'
+alias remake='make clean;ls;make'
+alias mmake='make |& tee latest_make_output.txt;ls'
+alias mclean='make clean;ls'
 alias i='ifconfig -a'    
 alias ifconfig='ifconfig -a'    
 alias ffind='find . -type f -name'    
@@ -167,6 +176,8 @@ alias dfind='find . -type d -name'
 alias afind='find . -name'
 alias agrep='grep --color -rni'
 alias aclip='xclip -sel clip'
+alias mclip='xclip -sel clip'
+
 
 # pipe aliases 
 alias -g AGREP="| grep --color -ni"
@@ -322,6 +333,8 @@ alias gcheckout='git checkout'
 alias gpull='git pull'
 alias gitstat='git status'
 alias gstat='git status'
+alias gbranch='git branch'
+alias gconfig='git config'
 alias gadd='git add'
 alias ggg='git status'
 alias bb='bash'
@@ -350,5 +363,7 @@ source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias kernelversion='uname -a'
+
+alias hex='ghex'
 
 PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
