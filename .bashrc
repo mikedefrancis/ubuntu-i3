@@ -8,6 +8,8 @@ case $- in
       *) return;;
 esac
 
+export EDITOR='vim'
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -87,6 +89,30 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+alias -g G="| grep"
+alias -g L="| less"
+
+# adb stuff
+alias devices='adb devices'
+alias shell='adb shell'
+alias logcat='adb logcat'
+
+# hg stuff
+alias hgbranch='hg branch'
+alias hgbr='hg branch'
+alias hgstatus='hg status'
+alias hgstat='hg status'
+alias hgrevert='hg revert'
+alias hgcommit='hg commit'
+alias hgadd='hg add'
+alias hgremove='hg remove'
+alias hgpush='hg push'
+alias hgcheckout='hg checkout'
+alias hgmerge='hg merge'
+alias hgupdate='hg update'
+alias hgup='hg update'
+alias hgpull='hg pull'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -135,28 +161,87 @@ alias untarj='tar -xjf'
 
 
 ## a quick way to get out of current directory ##
+alias cd..='cd ..'
+alias cd../..='cd ../..'
+alias cd../../..='cd ../../../'
+alias cd../../../..='cd ../../../..'
+alias cd../../../../..='cd ../../../../..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 alias ......='cd ../../../../'
+alias .2='cd ../..'
+alias .3='cd ../../..'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+alias .6='cd ../../../../../..'
+alias .7='cd ../../../../../../..'
 alias c='clear'
-# save standard err and standard out to make output file:    
+alias cc='clear'
+alias clear='clear;ls'
+
+# save standard err and standard out to make output file:
 alias make='make'
-alias mmake='make |& tee latest_make_output.txt'
+alias makec='make clean;ls'
+alias remake='make clean;ls;make'
+alias mmake='make |& tee latest_make_output.txt;ls'
+alias mclean='make clean;ls'
 alias i='ifconfig -a'    
 alias ifconfig='ifconfig -a'    
-alias ggrep='grep --color -rni'    
-alias ffind='find -type f -name'    
-alias dfind='find -type d -name'    
-alias mfind='find -name'      
+alias ffind='find . -type f -name'    
+alias dfind='find . -type d -name'    
+alias afind='find . -name'
+alias agrep='grep --color -rni'
+alias aclip='xclip -sel clip'
+alias mclip='xclip -sel clip'
+
 alias vi='vim'                                               
 alias vihelp='echo use vi +[LineNum] [file] || vi [file]'    
 # alias cat='cat -n'
 alias catl='cat -n' #cat with some lines numbers         
 
+# show custom cheatsheet
+alias cheats="echo 'acheat(add) || dcheat[#](del) || cheat#(run #) || pushcheats(archive all) || echeats(edit) || oldcheats(see archive)'; test -f ~/.arc/cheats.txt && less -N ~/.arc/cheats.txt"
+alias cheat="cheats"
+alias echeats="vi ~/.arc/cheats.txt"
+alias ccheats="cat ~/.arc/cheats.txt"
+alias -g CHEATS="~/.arc/cheats.txt"
+alias acheat="echo \"use 'echo !! >> CHEATS' or 'echo [CTRL-R] >> CHEATS' or 'echo [UP ARROW] >> CHEATS'\""
+alias dcheat="sed -i '$ d' ~/.arc/cheats.txt; cheats" 
+alias pushcheats="cat ~/.arc/cheats.txt >> ~/.arc/oldcheats.txt;rm ~/.arc/cheats.txt; touch ~/.arc/cheats.txt; cheats" 
+
+# archival cheatsheet
+alias oldcheats="echo 'ARCHIVE OF CHEATS'; test -f ~/.arc/oldcheats.txt && less -N ~/.arc/oldcheats.txt"
+alias eoldcheats="vi ~/.arc/oldcheats.txt"
+alias coldcheats="cat ~/.arc/oldcheats.txt"
+alias -g OLDCHEATS="~/.arc/oldcheats.txt"
+
+# del cheats
+alias dcheat1="sed -i.bak -e '1d' CHEATS; cheats"
+alias dcheat2="sed -i.bak -e '2d' CHEATS; cheats"
+alias dcheat3="sed -i.bak -e '3d' CHEATS; cheats"
+alias dcheat4="sed -i.bak -e '4d' CHEATS; cheats"
+alias dcheat5="sed -i.bak -e '5d' CHEATS; cheats"
+alias dcheat6="sed -i.bak -e '6d' CHEATS; cheats"
+alias dcheat7="sed -i.bak -e '7d' CHEATS; cheats"
+alias dcheat8="sed -i.bak -e '8d' CHEATS; cheats"
+alias dcheat9="sed -i.bak -e '9d' CHEATS; cheats"
+alias dcheat10="sed -i.bak -e '10d' CHEATS; cheats"
+
+# run cheats
+alias cheat1="sed 1!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat2="sed 2!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat3="sed 3!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat4="sed 4!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat5="sed 5!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat6="sed 6!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat7="sed 7!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat8="sed 8!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat9="sed 9!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat10="sed 10!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+
+### END CUSTOM CHEATS ###
                          
 # added the following for the bookmarking script
 if [ -f ~/.cdb ]; then
@@ -197,6 +282,12 @@ alias bmarks='cdb -l'
 alias bmks='cdb -l'
 alias bdel='cdb -d'
 
+# for editing this file           
+alias editbash='vim ~/.bashrc'      
+alias srcbash='source ~/.bashrc'    
+alias zsource='source ~/.zshrc'
+alias srcz='source ~/.zshrc'
+alias sourcez='source ~/.zshrc'
 
 alias src='source'    
                                
@@ -230,6 +321,10 @@ alias tunnel2='rm ~/tunnel2;ln -sf "$(pwd)" ~/tunnel2'
 alias tunnel3='rm ~/tunnel3;ln -sf "$(pwd)" ~/tunnel3'
        
 alias ff='nautilus .'
+alias ff='nautilus .'
+alias folder='nautilus --no-desktop .'
+alias folders='nautilus --no-desktop .'
+alias nautilusi3='nautilus --no-desktop .'
 
 alias v='vim'
 
@@ -247,12 +342,44 @@ alias vmware-fix='vmware-user-suid-wrapper'
 alias calc='gnome-calculator'
 alias calculator='gnome-calculator'
 
+
+alias gcommit='git commit'
+alias gpush='git push'
+alias gcheckout='git checkout'
+alias gpull='git pull'
 alias gitstat='git status'
+alias gitstatus='git status'
+alias gstat='git status'
+alias gitbranch='git branch'
+alias gitbr='git branch'
+alias gbranch='git branch'
+alias gconfig='git config'
+alias gitconf='git config'
+alias gitconfig='git config'
+alias gadd='git add'
 alias ggg='git status'
 alias bb='bash'
 alias zz='zsh'
+
+alias mkill='kill -9'
+alias killall='kill -9'
+alias forcekill='kill -9'
+
+alias nc4242='netcat -l -p 4242'
+
+alias 010='010editor'
+
+alias sourcezsh='source ~/.zshrc'
+
+alias lemmein='sudo docker exec -it $(sudo docker ps -l -q) /bin/bash'
+
+alias cleartrash='rm -rf ~/.local/share/Trash/*'
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
+
+feh --bg-scale ~/.config/i3/voyager.jpg
