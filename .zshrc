@@ -27,42 +27,9 @@ export EDITOR="vi"
 alias -g G="| grep"
 alias -g L="| less"
 
-# adb stuff
-alias devices='adb devices'
-alias shell='adb shell'
-alias logcat='adb logcat'
-
-# hg stuff
-alias hgbranch='hg branch'
-alias hgbr='hg branch'
-alias hgstatus='hg status'
-alias hgstat='hg status'
-alias hgrevert='hg revert'
-alias hgcommit='hg commit'
-alias hgadd='hg add'
-alias hgremove='hg remove'
-alias hgpush='hg push'
-alias hgcheckout='hg checkout'
-alias hgmerge='hg merge'
-alias hgupdate='hg update'
-alias hgup='hg update'
-alias hgpull='hg pull'
-
-# Some docker aliases
-alias dockerps='docker ps'
-alias dps='docker ps'
-alias dockerimages='docker images'
-alias dimages='docker images'
-alias dkillall='docker kill $(docker ps -a -q)'
-alias drmall='docker rm $(docker ps -a -q)'
-alias dexec='docker exec'
-alias dshell='docker exec -it bash'
-
-
 
 ### 2019 MULTI-TERMINAL MOVEMENT BINDINGS ###
 # bind -x '"\C-k": "\S-Page U"'
-
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -84,7 +51,7 @@ alias dshell='docker exec -it bash'
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -127,6 +94,11 @@ setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
 setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
 
+# ADDING THESE THINGS BECAUSE THEY ARE AWESOME
+source ~/.oh-my-zsh/plugins/auto-ls.zsh
+source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -147,16 +119,65 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
+####################################
+#       GIT AND MERCURIAL
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+# git stuff
+alias gcommit='git commit -m'
+alias gcom='git commit -m'
+alias gpush='git push'
+alias gcheckout='git checkout'
+alias gpull='git pull'
+alias gitstat='git status'
+alias gitstatus='git status'
+alias gstat='git status'
+alias gitbranch='git branch'
+alias gitbr='git branch'
+alias gbranch='git branch'
+alias gbr='git branch'
+alias gconfig='git config'
+alias gitconf='git config'
+alias gitconfig='git config'
+alias gadd='git add'
+alias grm='git rm'
+alias ggg='git status'
 
+# hg stuff
+alias hgbranch='hg branch'
+alias hgbr='hg branch'
+alias hgstatus='hg status'
+alias hgstat='hg status'
+alias hgrevert='hg revert'
+alias hgcommit='hg commit'
+alias hgadd='hg add'
+alias hgremove='hg remove'
+alias hgpush='hg push'
+alias hgcheckout='hg checkout'
+alias hgmerge='hg merge'
+alias hgupdate='hg update'
+alias hgup='hg update'
+alias hgpull='hg pull'
 
-# ALIASES ADDED BY MPD
+##############################
+#         NAV SYSTEM
+
+# place a tunnel in the user home 
+# redirect the tunnel to current location
+alias tun='rm ~/tun;ln -sf "$(pwd)" ~/tun'
+alias tunnel='rm ~/tunnel;ln -sf "$(pwd)" ~/tunnel'
+alias tunnel2='rm ~/tunnel2;ln -sf "$(pwd)" ~/tunnel2'
+alias tunnel3='rm ~/tunnel3;ln -sf "$(pwd)" ~/tunnel3'
+       
+alias ff='nautilus .'
+alias folder='nautilus --no-desktop .'
+alias folders='nautilus --no-desktop .'
+alias nautilusi3='nautilus --no-desktop .'
+
 # warning! undefining something does not remove the alias from shells that have previously sourced this
 alias tt='gnome-terminal'
+alias save='pushd .'
+alias sret='pushd .'
+alias ret='popd;ls'
 alias back='cd -;ls'
 alias home='pushd .; cd ~;ls'
 alias jump='pushd .; cd '
@@ -164,10 +185,12 @@ alias jump='pushd .; cd '
 alias findproc='ps -A | grep'
 alias killproc='kill'
 ## get rid of command not found ##
+alias cd..='cd ..'
 
-alias untarz='tar -xzf'
-alias untarj='tar -xjf'
-
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 ## a quick way to get out of current directory ##
 alias cd..='cd ..'
@@ -190,38 +213,53 @@ alias c='clear'
 alias cc='clear'
 alias clear='clear;ls'
 
-# save standard err and standard out to make output file:
-alias make='make'
-alias makec='make clean;ls'
-alias remake='make clean;ls;make'
-alias mmake='make |& tee latest_make_output.txt;ls'
-alias mclean='make clean;ls'
-alias i='ifconfig -a'    
-alias ifconfig='ifconfig -a'    
-alias ffind='find . -type f -name'    
-alias dfind='find . -type d -name'    
-alias afind='find . -name'
-alias agrep='grep --color -rni'
-alias aclip='xclip -sel clip'
-alias mclip='xclip -sel clip'
+# added the following for the bookmarking script
+if [ -f ~/.cdb ]; then
+    source ~/.cdb
+fi
 
+alias save='cdb -d save; cdb -c save'
+alias ret='cdb -g save'
 
-# pipe aliases 
-alias -g AGREP="| grep --color -ni"
-alias -g ACLIP="| xclip -sel clip"
-alias -g XCLIP="| xclip"
-alias -g ALESS="| less"
-alias -g XARGS="| xargs"
-alias -g APIPE="|& tee redirect.txt"
+alias save1='cdb -d save1; cdb -c save1'
+alias ret1='cdb -g save1'
 
-### CUSTOM CHEAT SYSTEM ###
+alias save2='cdb -d save2; cdb -c save2'
+alias ret2='cdb -g save2'
+
+alias save3='cdb -d save3; cdb -c save3'
+alias ret3='cdb -g save3'
+
+alias save4='cdb -d save4; cdb -c save4'
+alias ret4='cdb -g save4'
+
+alias save5='cdb -d save5; cdb -c save5'
+alias ret5='cdb -g save5'
+
+alias mark='cdb -c'
+
+alias places='cdb -l'
+alias marks='cdb -l'
+alias saves='cdb -l'
+alias goto='cdb -g'
+
+#some aliases to use cdb
+alias bmark='cdb -c'
+alias bmk='cdb -c'
+alias bjump='cdb -g'
+alias bgo='cdb -g'
+alias bmarks='cdb -l'
+alias bmks='cdb -l'
+alias bdel='cdb -d'
+
+##############################
+#         CHEAT SYSTEM
 
 # show custom cheatsheet
 alias cheats="echo 'acheat(add) || dcheat[#](del) || cheat#(run #) || pushcheats(archive all) || echeats(edit) || oldcheats(see archive)'; test -f ~/.arc/cheats.txt && less -N ~/.arc/cheats.txt"
 alias cheat="cheats"
 alias echeats="vi ~/.arc/cheats.txt"
 alias ccheats="cat ~/.arc/cheats.txt"
-alias -g CHEATS="~/.arc/cheats.txt"
 alias acheat="echo \"use 'echo !! >> CHEATS' or 'echo [CTRL-R] >> CHEATS' or 'echo [UP ARROW] >> CHEATS'\""
 alias dcheat="sed -i '$ d' ~/.arc/cheats.txt; cheats" 
 alias pushcheats="cat ~/.arc/cheats.txt >> ~/.arc/oldcheats.txt;rm ~/.arc/cheats.txt; touch ~/.arc/cheats.txt; cheats" 
@@ -230,7 +268,6 @@ alias pushcheats="cat ~/.arc/cheats.txt >> ~/.arc/oldcheats.txt;rm ~/.arc/cheats
 alias oldcheats="echo 'ARCHIVE OF CHEATS'; test -f ~/.arc/oldcheats.txt && less -N ~/.arc/oldcheats.txt"
 alias eoldcheats="vi ~/.arc/oldcheats.txt"
 alias coldcheats="cat ~/.arc/oldcheats.txt"
-alias -g OLDCHEATS="~/.arc/oldcheats.txt"
 
 # del cheats
 alias dcheat1="sed -i.bak -e '1d' CHEATS; cheats"
@@ -302,58 +339,22 @@ alias cheat30="sed 30!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to p
 
 ### END CUSTOM CHEATS ###
 
-alias vi='vim'                                               
-alias vihelp='echo use vi +[LineNum] [file] || vi [file]'    
-alias catl='cat -n' #cat with some lines numbers    
-                                                    
-# added the following for the bookmarking script    
-if [ -f ~/.cdb ]; then    
-    source ~/.cdb    
-fi    
-           
-alias save='cdb -d save; cdb -c save'
-alias ret='cdb -g save'
+#########################
+# SPECIAL / IMPORTANT
 
-alias save1='cdb -d save1; cdb -c save1'
-alias ret1='cdb -g save1'
+#so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
+stty -ixon
 
-alias save2='cdb -d save2; cdb -c save2'
-alias ret2='cdb -g save2'
+# i3 LOGOUT HACK
+alias logout='i3-msg exit'
 
-alias save3='cdb -d save3; cdb -c save3'
-alias ret3='cdb -g save3'
+# hack to fix vmware tools on i3 if it didn't auto-load the things
+alias vmware-restart='vmware-user-suid-wrapper'
+alias vmware='vmware-user-suid-wrapper'
+alias vmware-user='vmware-user-suid-wrapper'
+alias vmware-fix='vmware-user-suid-wrapper'
 
-alias save4='cdb -d save4; cdb -c save4'
-alias ret4='cdb -g save4'
-
-alias save5='cdb -d save5; cdb -c save5'
-alias ret5='cdb -g save5'
-
-alias mark='cdb -c'
-
-alias places='cdb -l'
-alias marks='cdb -l'
-alias saves='cdb -l'
-alias goto='cdb -g'
-
-#some aliases to use cdb    
-alias bmark='cdb -c'    
-alias bmk='cdb -c'      
-alias bjump='cdb -g'    
-alias bgo='cdb -g'       
-alias bmarks='cdb -l'    
-alias bmks='cdb -l'    
-alias bdel='cdb -d'    
-                          
-alias src='source'    
-                               
-# for editing this file           
-alias editbash='vim ~/.bashrc'      
-alias srcbash='source ~/.bashrc'    
-alias zsource='source ~/.zshrc'
-alias srcz='source ~/.zshrc'
-alias sourcez='source ~/.zshrc'
-                                
+#  NOTES
 # for using my todo list
 # using save5 / ret5 as a scratch space to jump forward and back between folders
 alias cnotes='ls ~/notes/;cat ~/notes/notes.txt | more'    
@@ -367,60 +368,83 @@ alias dnotes='echo USE delnotes to delete all notes'
 alias delnotes='savenotes;rm ~/notes/notes.txt'
 alias savenotes='cp ~/notes/notes.txt ~/notes/prevnotes.txt;cat ~/notes/prevnotes.txt >> ~/notes/archivenotes.txt'
 
-alias logout='i3-msg exit'
+#########################
+#        PROGRAM ALIAS'
 
+# adb stuff
+alias devices='adb devices'
+alias shell='adb shell'
+alias logcat='adb logcat'
 
-# place a tunnel in the user home 
-# redirect the tunnel to current location
-alias tun='rm ~/tun;ln -sf "$(pwd)" ~/tun'
-alias tunnel='rm ~/tunnel;ln -sf "$(pwd)" ~/tunnel'
-alias tunnel2='rm ~/tunnel2;ln -sf "$(pwd)" ~/tunnel2'
-alias tunnel3='rm ~/tunnel3;ln -sf "$(pwd)" ~/tunnel3'
-       
-alias ff='nautilus .'
-alias folder='nautilus --no-desktop .'
-alias folders='nautilus --no-desktop .'
-alias nautilusi3='nautilus --no-desktop .'
-
-alias v='vim'
-
-alias vim='vim -p'
+# DOCKER
+# Some docker aliases
+alias dockerps='docker ps'
+alias dps='docker ps'
+alias dockerimages='docker images'
+alias dimages='docker images'
+alias dkillall='docker kill $(docker ps -a -q)'
+alias drmall='docker rm $(docker ps -a -q)'
+alias dexec='docker exec'
+alias dshell='docker exec -it bash'
 
 alias disk=df
 alias chrome='chromium-browser'
 
-
-alias vmware-restart='vmware-user-suid-wrapper'
-alias vmware='vmware-user-suid-wrapper'
-alias vmware-user='vmware-user-suid-wrapper'
-alias vmware-fix='vmware-user-suid-wrapper'
-
 alias calc='gnome-calculator'
 alias calculator='gnome-calculator'
 
-alias gcommit='git commit'
-alias gpush='git push'
-alias gcheckout='git checkout'
-alias gpull='git pull'
-alias gitstat='git status'
-alias gitstatus='git status'
-alias gstat='git status'
-alias gitbranch='git branch'
-alias gitbr='git branch'
-alias gbranch='git branch'
-alias gbr='git branch'
-alias gconfig='git config'
-alias gitconf='git config'
-alias gitconfig='git config'
-alias gadd='git add'
-alias grm='git rm'
-alias ggg='git status'
 alias bb='bash'
 alias zz='zsh'
 
 alias mkill='kill -9'
 alias killall='kill -9'
 alias forcekill='kill -9'
+
+# VIM
+alias vi='vim'                                               
+alias v='vim'
+alias vim='vim -p'
+alias editbash='vim ~/.bashrc'
+alias sourcebash='source ~/.bashrc'    
+alias sourcezsh='source ~/.zshrc'
+alias srczsh='source ~/.zshrc'    
+alias srcbash='source ~/.bashrc'    
+alias zsource='source ~/.zshrc'
+alias srcz='source ~/.zshrc'
+alias sourcez='source ~/.zshrc'
+
+###########################
+#  FIND, FIND, GREP
+
+# save standard err and standard out to make output file:
+alias make='make'
+alias makec='make clean;ls'
+alias remake='make clean;ls;make'
+alias mmake='make |& tee latest_make_output.txt;ls'
+alias mclean='make clean;ls'
+alias i='ifconfig -a'    
+alias ifconfig='ifconfig -a'    
+alias ffind='find . -type f -name'    
+alias dfind='find . -type d -name'    
+alias afind='find . -name'
+alias agrep='grep --color -rni'
+alias aclip='xclip -sel clip'
+alias mclip='xclip -sel clip'
+alias -g AGREP="| grep --color -ni"
+alias -g ACLIP="| xclip -sel clip"
+alias -g XCLIP="| xclip"
+alias -g ALESS="| less"
+alias -g XARGS="| xargs"
+alias -g APIPE="|& tee redirect.txt"
+
+
+################################
+#         RANDOM STUFF
+alias src='source'    
+
+alias vihelp='echo use vi +[LineNum] [file] || vi [file]'    
+alias catl='cat -n' #cat with some lines numbers    
+
 
 alias nc4242='netcat -l -p 4242'
 
@@ -432,17 +456,11 @@ alias lemmein='sudo docker exec -it $(sudo docker ps -l -q) /bin/bash'
 
 alias cleartrash='rm -rf ~/.local/share/Trash/*'
 
-#so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
-stty -ixon
-
-source ~/.oh-my-zsh/plugins/auto-ls.zsh
-
-source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias kernelversion='uname -a'
 
 alias hex='ghex'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
 
