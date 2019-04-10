@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 export EDITOR='vim'
 
@@ -26,6 +26,43 @@ export EDITOR="vi"
 
 alias -g G="| grep"
 alias -g L="| less"
+
+# adb stuff
+alias devices='adb devices'
+alias shell='adb shell'
+alias logcat='adb logcat'
+
+# hg stuff
+alias hgbranch='hg branch'
+alias hgbr='hg branch'
+alias hgstatus='hg status'
+alias hgstat='hg status'
+alias hgrevert='hg revert'
+alias hgcommit='hg commit'
+alias hgadd='hg add'
+alias hgremove='hg remove'
+alias hgpush='hg push'
+alias hgcheckout='hg checkout'
+alias hgmerge='hg merge'
+alias hgupdate='hg update'
+alias hgup='hg update'
+alias hgpull='hg pull'
+
+# Some docker aliases
+alias dockerps='docker ps'
+alias dps='docker ps'
+alias dockerimages='docker images'
+alias dimages='docker images'
+alias dkillall='docker kill $(docker ps -a -q)'
+alias drmall='docker rm $(docker ps -a -q)'
+alias dexec='docker exec'
+alias dshell='docker exec -it bash'
+
+
+
+### 2019 MULTI-TERMINAL MOVEMENT BINDINGS ###
+# bind -x '"\C-k": "\S-Page U"'
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -96,16 +133,6 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -217,6 +244,28 @@ alias dcheat8="sed -i.bak -e '8d' CHEATS; cheats"
 alias dcheat9="sed -i.bak -e '9d' CHEATS; cheats"
 alias dcheat10="sed -i.bak -e '10d' CHEATS; cheats"
 
+alias dcheat11="sed -i.bak -e '11d' CHEATS; cheats"
+alias dcheat12="sed -i.bak -e '12d' CHEATS; cheats"
+alias dcheat13="sed -i.bak -e '13d' CHEATS; cheats"
+alias dcheat14="sed -i.bak -e '14d' CHEATS; cheats"
+alias dcheat15="sed -i.bak -e '15d' CHEATS; cheats"
+alias dcheat16="sed -i.bak -e '16d' CHEATS; cheats"
+alias dcheat17="sed -i.bak -e '17d' CHEATS; cheats"
+alias dcheat18="sed -i.bak -e '18d' CHEATS; cheats"
+alias dcheat19="sed -i.bak -e '19d' CHEATS; cheats"
+alias dcheat20="sed -i.bak -e '20d' CHEATS; cheats"
+
+alias dcheat21="sed -i.bak -e '21d' CHEATS; cheats"
+alias dcheat22="sed -i.bak -e '22d' CHEATS; cheats"
+alias dcheat23="sed -i.bak -e '23d' CHEATS; cheats"
+alias dcheat24="sed -i.bak -e '24d' CHEATS; cheats"
+alias dcheat25="sed -i.bak -e '25d' CHEATS; cheats"
+alias dcheat26="sed -i.bak -e '26d' CHEATS; cheats"
+alias dcheat27="sed -i.bak -e '27d' CHEATS; cheats"
+alias dcheat28="sed -i.bak -e '28d' CHEATS; cheats"
+alias dcheat29="sed -i.bak -e '29d' CHEATS; cheats"
+alias dcheat30="sed -i.bak -e '30d' CHEATS; cheats"
+
 # run cheats
 alias cheat1="sed 1!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 alias cheat2="sed 2!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
@@ -228,6 +277,28 @@ alias cheat7="sed 7!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to pas
 alias cheat8="sed 8!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 alias cheat9="sed 9!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 alias cheat10="sed 10!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+
+alias cheat11="sed 11!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat12="sed 12!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat13="sed 13!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat14="sed 14!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat15="sed 15!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat16="sed 16!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat17="sed 17!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat18="sed 18!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat19="sed 19!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat20="sed 20!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+
+alias cheat21="sed 21!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat22="sed 22!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat23="sed 23!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat24="sed 24!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat25="sed 25!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat26="sed 26!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat27="sed 27!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat28="sed 28!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat29="sed 29!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
+alias cheat30="sed 30!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 
 ### END CUSTOM CHEATS ###
 
@@ -332,10 +403,17 @@ alias gpush='git push'
 alias gcheckout='git checkout'
 alias gpull='git pull'
 alias gitstat='git status'
+alias gitstatus='git status'
 alias gstat='git status'
+alias gitbranch='git branch'
+alias gitbr='git branch'
 alias gbranch='git branch'
+alias gbr='git branch'
 alias gconfig='git config'
+alias gitconf='git config'
+alias gitconfig='git config'
 alias gadd='git add'
+alias grm='git rm'
 alias ggg='git status'
 alias bb='bash'
 alias zz='zsh'
@@ -367,3 +445,5 @@ alias kernelversion='uname -a'
 alias hex='ghex'
 
 PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
+
+feh --bg-scale ~/.config/i3/voyager.jpg
