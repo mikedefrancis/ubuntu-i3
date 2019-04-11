@@ -1,6 +1,6 @@
-" ============ GUNGNIR ===========
+" ============ WARPCORE ===========
 "
-" Copyright 2017, Mike DeFrancis. mike(AT)defrancis(dot)org
+" Copyright 2019, Mike DeFrancis. mike(AT)defrancis(dot)org
 "
 " @Warrantee
 " There is no warrantee provided for this software, not even an implied
@@ -11,9 +11,8 @@
 " I AM NOT RESPONSIBLE FOR YOUR LOST DATA!
 "
 " @Description
-" GUNGNIR is a heavily edited vim configuration.
-" Sometimes, Stock vim will do.
-" Sometimes, you need the spear of odin.
+" WARPCORE is a heavily edited vim configuration.
+" Sometimes, Stock vim will do.. but sometimes you need to be faster.
 " All of the modifications are contained within this .vimrc (except plugins)
 " This has been tested within gnome-terminal on ubuntu 16.04 but may work on
 " other systems. This version of vim uses Ctrl+a for switching to normal mode
@@ -25,7 +24,7 @@
 " stty -ixon
 "
 " GOAL:
-" GUNGNIR is my personal vim configuration. You are welcome to try it out for yourself.
+" WARPCORE is my personal vim configuration. You are welcome to try it out for yourself.
 "
 " NOTE:
 "       The KEY REMAPPINGS listed BELOW may be OUT OF DATE (I am a bit lazy)
@@ -51,73 +50,61 @@
 "       Ctrl+w:   insert newline
 "       Ctrl+t:   toggle mouse
 "       Ctrl+u:   toggle insert paste mode
-"       Ctrl+g:   toggle nerdtree
 "       Ctrl+p:   paste register p
 "       Ctrl+{h,j,k,l}: go left, down, up, right by 3 lines at a time
 "       Ctrl+Left: go to window to the Left (requires easymotion plugin)
 "       Ctrl+Right:go to window to the Right(requires easymotion plugin)
 "       Ctrl+Up:   go to window to the Up   (requires easymotion plugin)
 "       Ctrl+Down: go to window to the Down (requires easymotion plugin)
+"       Ctrl+h   goto tab to the left
+"       Ctrl+l   goto tab to the right
+"       Ctrl-g/q           start/stop recording macro g
 "
 " LETTER KEY REMAPPINGS FOR NORMAL MODE:
 
 "       a              insert mode
 "       ff             find word under cursor in open file
-"       gg/q           start/stop recording macro g
 "       fd             ctrlp find in files
-"       ww             show whitespace characters
+"       i              show whitespace characters
 "       cc             show current working directory
-"       ls             show current working directory in nerdtree
+"       cv             show path to current file
 "       cd             change directory using :cd command
-"       bb             go back one directory and show in nerdtree
 "       gt             goto top of file
 "       gb             goto bottom of file
-"       gs             goto start of line
+"       gs             goto start of line and enter insert mode
+"       ge             goto end of line and enter insert mode
 "       gl             goto start of line (exclude whitespace)
 "       ga             insert at the of current line
 "       cw             change word under cursor
 "       ci{'"{[(}      change inside quotes/braces/etc.
-"       b+{qwerty}     create qwerty bookmark
+"       qq/rr/tt/yy    tap corresponding bookmark key twice to goto bookmark
 "       dd             cut line
 "       de             cut to end of current line
 "       dw             delete word under cursor
-"       hm             toggle hex editing mode (DANGEROUS FOR NON BIN FILES!)
 "       pp             open previous files
 "       cp             copy current line into p register
 "
 " SHIFT KEY REMAPPINGS FOR NORMAL MODE:
-"
-"       Shift+z+z:   close all windows and tabs without saving
-"       Shift+x+x:   close all windows and tabs and save all
-"       Shift+{qwerty} go to qwerty bookmark
+
+"       Shift+{qrty}   create qrty bookmark
+"       Shift+z+z:     close all windows and tabs without saving
+"       Shift+x+x:     close all windows and tabs and save all
 "       Shift+p        toggle colors (dark/light)
 "       Shift+d        find in files using ACK/AG (REQUIRES PLUGIN)
 "       Shift+f        find and replace in current file
-"       Shift+u        edit notes file ~/.notes.txe
 "       Shift+i        toggle search highlight
 "       Shift+v        enter visual line/block mode
-"       Shift+b        tabedit
-"       Shift+c        set current working directory to current file (REQUIRES NERDTREE PLUGIN)
 "       Shift+g        run macro g
 "       Shift+a        back to prev location
 "       Shift+s        forward to next location
 "       Shift+h        toggle line highlight
-"       Shift+l        toggle background color (light/dark)
 "       shift+j        tjump to definitions for text under cursor (ctags)
 "       Shift+n        go to previous search result in file
 "       Shift+o        set write permissions on current file using sudo
-"       Shift+Left     go to previous tab
-"       Shift+Right    go to next tap
-"       Shift+Up       go up 6 lines
-"       Shift+Down     go down 6 lines
 "       Shift+Tab      unindent (visual mode)
 "
 " OTHER KEY REMAPPINGS:
 "
-"       Alt+Left    back
-"       Alt+Right   forward
-"       Tab         autocomplete text (insert mode)
-"       Tab         toggle syntastic (normal mode)
 "       Tab         indent (visual mode)
 "       Space       toggle center-scroll (normal mode)
 "       ;           Enter command mode (:<command)
@@ -126,24 +113,25 @@
 "       ,           Leader
 "       ,c<Space>   Toggle comment/uncomment selected line(s)
 "
-" SOME USEFUL COMMANDS NOT MAPPED:
+" STANDARD VIM COMMAND REFERENCE:
 "
-"       :<number>  Goto line number
-"       :make      Run make and capture output
-"       :cn        Jump to file containing make error
-"       :cc        Show make error message
-"       :Delete    delete file in buffer
-"       :SudoEdit  edit a file using sudo
-"       :Find      use find and output results to quickfix window
-"       :Chmod     change the permission of the current file
+"       w/W       goto start of next word
+"       e/E       goto end of next word
+"       b/B       goto start of previous word
+"       v         enter visual mode
+"       V         enter visual line mode
+"       :<number> goto line number
+"       :make     run make and capture output
+"       :cn       jump to file containing make error
+"       :cc       show make error message
+"       :Delete   delete file in buffer
+"       :SudoEdit edit a file using sudo
+"       :Find     use find and output results to quickfix window
+"       :Chmod    change the permission of the current file
 "
 " PLUGINS:
 "   I am using Vundle to install my plugins
-"   THERE IS A SEPARATE VERSION OF THIS FILE FOR THE PLUGINS BECAUSE IT CONTAINS PLUGIN REMAPS
-"   Please look through this file to see which plugins have been added
-"   (they are all included in one block of text down there so it should be
-"   obvious)
-"
+
 "
 " PLEASE NOT THAT:
 "  - I love vim, but I am no vim guru. I needed to make it usable fast.
@@ -203,9 +191,7 @@ Plugin 'scrooloose/nerdcommenter'
 "Plugin 'mattn/emmet-vim'
 "Plugin 'sjl/gundo.vim'
 
-" SUPER AWESOME EVERYONE SHOULD USE EASYMOTION
-
-" Plugin 'easymotion/vim-easymotion'
+Plugin 'easymotion/vim-easymotion'
 
 "Plugin 'tpope/vim-surround'
 "
@@ -217,7 +203,7 @@ Plugin 'kien/ctrlp.vim'
 "Plugin 'SirVer/ultisnips'
 
 " ==== PLUGIN THEMES ====
-"Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 "Plugin 'vim-scripts/darktango.vim'
 "Plugin 'jonathanfilip/vim-lucius'
 Plugin 'tomasr/molokai'
@@ -268,10 +254,10 @@ colorscheme molokai
 " let g:gruvbox_number_column_dark ='blue'
 
 " ==== NERDTREE ====
-" let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*', '[a-zA-Z]*egg[a-zA-Z]*', '[a-zA-Z]*cache[a-zA-Z]*']
-" let NERDTreeShowHidden=1
-" let g:NERDTreeWinPos="left"
-" let g:NERDTreeDirArrows=0
+let NERDTreeIgnore = ['\.pyc$', '\.o$', '\.so$', '\.a$', '\.swp', '*\.swp', '\.swo', '\.swn', '\.swh', '\.swm', '\.swl', '\.swk', '\.sw*', '[a-zA-Z]*egg[a-zA-Z]*', '[a-zA-Z]*cache[a-zA-Z]*']
+let NERDTreeShowHidden=1
+let g:NERDTreeWinPos="left"
+let g:NERDTreeDirArrows=0
 
 " ==== Syntastic ====
 " Only use syntastic when there is a problem. Set it to passive by default.
@@ -299,22 +285,22 @@ colorscheme molokai
 "let g:UltiSnipsEditSplit="vertical"
 
 " ==== Easymotion ====
-" let g:EasyMotion_do_mapping = 0
-" let g:EasyMotion_smartcase = 1
-" nmap f <Plug>(easymotion-s)
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap f <Plug>(easymotion-s)
 
-" nmap <silent> <C-Up> :wincmd k<CR>
-" nmap <silent> <C-Down> :wincmd j<CR>
-" nmap <silent> <C-Left> :wincmd h<CR>
-" nmap <silent> <C-Right> :wincmd l<CR>
-" inoremap <silent> <C-Up> <ESC>:wincmd k<CR>
-" inoremap <silent> <C-Left> <ESC>:wincmd h<CR>
-" inoremap <silent> <C-Down> <ESC>:wincmd j<CR>
-" inoremap <silent> <C-Right> <ESC>:wincmd l<CR>
-" nnoremap <silent> <C-Up> <ESC>:wincmd k<CR>
-" nnoremap <silent> <C-Left> <ESC>:wincmd h<CR>
-" nnoremap <silent> <C-Down> <ESC>:wincmd j<CR>
-" nnoremap <silent> <C-Right> <ESC>:wincmd l<CR>
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+inoremap <silent> <C-Up> <ESC>:wincmd k<CR>
+inoremap <silent> <C-Left> <ESC>:wincmd h<CR>
+inoremap <silent> <C-Down> <ESC>:wincmd j<CR>
+inoremap <silent> <C-Right> <ESC>:wincmd l<CR>
+nnoremap <silent> <C-Up> <ESC>:wincmd k<CR>
+nnoremap <silent> <C-Left> <ESC>:wincmd h<CR>
+nnoremap <silent> <C-Down> <ESC>:wincmd j<CR>
+nnoremap <silent> <C-Right> <ESC>:wincmd l<CR>
 
 "NERDCOMMENTER
 " Add spaces after comment delimiters by default
@@ -367,7 +353,7 @@ vnoremap <S-d> <ESC>:Ack!
 " ______________________________________________________________ "
 " ==== PROPERTIES ====
 
-"colorscheme solarized
+" colorscheme solarized
 syntax enable
 set background=dark
 set guifont=Monospace\ 10
@@ -633,7 +619,6 @@ nnoremap rr 'R
 nnoremap tt 'T
 nnoremap yy 'Y
 
-" Copyright 2017, Mike DeFrancis. mike(AT)defrancis(dot)org
 nnoremap <S-q> <ESC>mQ<ESC>:echo "mapped bookmark Q"<CR>
 " nnoremap <S-w> <ESC>mW<ESC>:echo "mapped bookmark W"<CR>
 " nnoremap <S-e> <ESC>mE<ESC>:echo "mapped bookmark E"<CR>
@@ -644,8 +629,7 @@ nnoremap <S-y> <ESC>mY<ESC>:echo "mapped bookmark Y"<CR>
 " recording fun
 " MAYBE CHANGE THESE
 nnoremap <S-g> @g
-nnoremap gg qg
-nnoremap <C-g> q
+nnoremap <C-g> qg
 
 " execute shell command
 nnoremap ' <ESC>:! 
@@ -660,9 +644,9 @@ nnoremap gb G
 nnoremap pp <ESC>:browse oldfiles!<CR>
 
 " open some favorite files like cake
-nnoremap vim <ESC>:edit ~/.vimrc<CR>
-nnoremap bash <ESC>:edit ~/.bashrc<CR>
-nnoremap zsh <ESC>:edit ~/.zshrc<CR>
+nnoremap .vim <ESC>:edit ~/.vimrc<CR>
+nnoremap .bash <ESC>:edit ~/.bashrc<CR>
+nnoremap .zsh <ESC>:edit ~/.zshrc<CR>
 "nnoremap notes <ESC>:edit ~/.notes.txt<CR>Gi
 " nnoremap <S-b> <ESC>:tabedit
 
@@ -757,45 +741,4 @@ augroup Binary
 augroup END
 
 set secure
-
-"""""""""""""""""""""""""""""""""""""
-" IDEAS // REMOVED // SAVED FOR LATER
-
-
-"function! ChangeToInsertCursor()
-
-" MAYBE REMOVE THIS BELOW
-"if has("autocmd")
-"  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
-"  au InsertEnter,InsertChange *
-"    \ if v:insertmode == 'i' | 
-"    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
-"    \ endif
-"  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
-"endif
-
-"endfunction
-
-" FUN WITH CTAGS!!!
-" MAYBE REMOVE THIS ONE
-"set tags=./tags,tags;
-"nnoremap gj <ESC><C-]> 
-"nnoremap tag <ESC>:!ctags -R --exclude=.git .
-"nnoremap <C-j> <ESC><C-]>
-
-" nnoremap rn <ESC>:Rename 
-" nnoremap mv <ESC>:Move 
-" Adding this line to allow manpage viewing
-" runtime ftplugin/man.vim
-
-" NOTES FOR EDITING YOURSELF
-
-" mode switches (hotkeys only available when the correct switch used):
-" nnoremap - normal mode
-" inoremap - insert mode
-" vnoremap - visual and select mode
-" xnoremap - visual mode
-" snoremap - select mode
-" cnoremap - command line mode
-" onoremap - operator pending mode
 

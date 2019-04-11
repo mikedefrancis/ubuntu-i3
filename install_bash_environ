@@ -1,0 +1,21 @@
+#!/bin/sh
+
+echo "WARNING, This installation will replace your existing .bashrc with a new one. Your old .bashrc file will be backed up to ~/.bashrc_nice_bak. \nDo you wish to continue?(y or n) [ENTER]:"
+read choice
+case $choice in
+    [Nn]* ) echo 'Aborting.'; exit;;
+    [Yy]* ) echo "proceeding with install.";;
+    * ) echo 'Aborting.'; exit;; 
+esac
+
+echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..." 
+cp ~/.bashrc ~/.bashrc_nice_bak
+sudo cp remembercreds /usr/bin/remembercreds
+sudo cp forgetcreds /usr/bin/forgetcreds
+cp ~/.gdbinit ~/.gdbinit_nice_bak
+cp .gdbinit ~/.gdbinit
+cp .bashrc ~/.bashrc
+cp .xsession ~/.xsession
+cp .cdb ~/.cdb
+
+echo "COPYING FILES... DONE. YOU MUST NOW RUN source ~/.bashrc"

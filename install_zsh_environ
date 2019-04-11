@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "WARNING, This installation will destroy your existing .bashrc file and other dotfiles! \nDo you wish to continue?(y or n) [ENTER]:"
+echo "WARNING, This installation will replace your existing .zshrc file and other dotfiles! Some attempt to back these up is made, but I am not responsible if they go poof. \nDo you wish to continue?(y or n) [ENTER]:"
 read choice
 case $choice in
     [Nn]* ) echo 'Aborting.'; exit;;
@@ -9,11 +9,11 @@ case $choice in
 esac
 
 echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..." 
-cp .bashrc ~/.bashrc
 cp .xsession ~/.xsession
 sudo cp remembercreds /usr/bin/remembercreds
 sudo cp forgetcreds /usr/bin/forgetcreds
 cp .cdb ~/.cdb
+cp ~/.gdbinit ~/.gdbinit_bak
 cp .gdbinit ~/.gdbinit
 sudo cp diffconfig /usr/bin/diffconfig
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -23,10 +23,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 sudo ~/.fzf/install
 chsh -s $(which zsh) #set zsh as default shell
+sudo cp ~/.zshrc ~/.zshrc_bak
 sudo cp .zshrc ~/.zshrc
 sudo cp auto-ls.zsh ~/.oh-my-zsh/plugins/
-sudo cp i3-config ~/.config/i3/config
-# sudo cp ../images/backgrounds/arc_alps.jpeg ~/.config/i3/
 # cp bullet-train.zsh-theme ~/.oh-my-zsh/themes/
 
-echo "COPYING FILES... DONE."
+echo "COPYING FILES... DONE. YOU MUST NOW RUN source ~/.zshrc"

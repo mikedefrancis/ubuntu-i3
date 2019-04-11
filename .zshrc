@@ -461,7 +461,3 @@ alias kernelversion='uname -a'
 alias hex='ghex'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
-
-feh --bg-scale ~/.config/i3/voyager.jpg

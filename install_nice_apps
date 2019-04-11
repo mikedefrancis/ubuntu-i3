@@ -1,8 +1,9 @@
 #!/bin/sh
-echo "INSTALLING MIKED APPS..." 
+echo "INSTALLING NICE APPS..." 
 echo "SOME USEFUL TOOLS FOR EDITING, BROWSING, ETC."
 
 # sudo apt-get update
+sudo apt-get install -y vim
 sudo apt-get install -y chromium-browser
 sudo apt-get install -y meld
 sudo apt-get install -y htop
@@ -11,19 +12,16 @@ sudo apt-get install -y ltrace
 sudo apt-get install -y rtrace
 sudo apt-get install -y nmap
 sudo apt-get install -y gdb
-sudo apt-get install -y qemu
-sudo apt-get install -y qemu-system-arm qemu-system-x86
 sudo apt-get install -y python python-pip
 sudo apt-get install -y binutils
-sudo apt-get install -y binutils-arm-none-eabi
 sudo apt-get install -y cmake
-sudo apt-get install -y git
 sudo apt-get install -y zsh
 # apt-get install -y fonts-powerline
 sudo apt-get install -y tmux
 sudo apt-get install -y zsh-antigen
 sudo apt-get install -y feh
 sudo apt-get install -y netcat
+sudo apt-get install -y git
 
 # put some more cool things here
 
