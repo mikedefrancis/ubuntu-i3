@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo "WARNING, This installation will replace your i3 config with a new one. Your old i3 config file will be backed up to ~/.config/i3/config_nice_bak \nDo you wish to continue?(y or n) [ENTER]:"
+read choice
+case $choice in
+    [Nn]* ) echo 'Aborting.'; exit;;
+    [Yy]* ) echo "proceeding with install.";;
+    * ) echo 'Aborting.'; exit;; 
+esac
+
+echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..." 
+cp ~/.config/i3/config ~/.config/i3/config_nice_bak
+cp i3-config ~/.config/i3/config
+cp voyager.jpg ~/.config/i3/voyager.jpg
+
+echo "COPYING FILES... DONE. YOU MUST NOW RUN source ~/.bashrc"
