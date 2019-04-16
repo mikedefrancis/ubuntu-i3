@@ -69,7 +69,7 @@ bindsym $mod+l focus right
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right<F12>
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Shift+Left move left
@@ -114,28 +114,28 @@ bindsym $mod+m move workspace to output right
 # bindsym $mod+Shift+m move container to output left
 
 # switch to workspace
-bindsym $mod+grave workspace 1 
-bindsym $mod+1 workspace 2
-bindsym $mod+2 workspace 3
-bindsym $mod+3 workspace 4
-bindsym $mod+4 workspace 5
-bindsym $mod+5 workspace 6
-bindsym $mod+6 workspace 7
-bindsym $mod+7 workspace 8
-bindsym $mod+8 workspace 9
-bindsym $mod+9 workspace 10
+bindsym $mod+grave workspace number 0 basis
+bindsym $mod+1 workspace number 1 first
+bindsym $mod+2 workspace number 2 second
+bindsym $mod+3 workspace number 3 third
+bindsym $mod+4 workspace number 4 build
+bindsym $mod+5 workspace number 5 eyes
+bindsym $mod+6 workspace number 6 remote
+bindsym $mod+7 workspace number 7 save
+bindsym $mod+8 workspace number 8 scratch
+bindsym $mod+9 workspace number 9 net
 
 # move focused container to workspace
-bindsym $mod+Shift+grave move container to workspace 1
-bindsym $mod+Shift+1 move container to workspace 2
-bindsym $mod+Shift+2 move container to workspace 3
-bindsym $mod+Shift+3 move container to workspace 4
-bindsym $mod+Shift+4 move container to workspace 5
-bindsym $mod+Shift+5 move container to workspace 6
-bindsym $mod+Shift+6 move container to workspace 7
-bindsym $mod+Shift+7 move container to workspace 8
-bindsym $mod+Shift+8 move container to workspace 9
-bindsym $mod+Shift+9 move container to workspace 10
+bindsym $mod+Shift+grave move container to workspace number 0 basis
+bindsym $mod+Shift+1 move container to workspace number 1 first
+bindsym $mod+Shift+2 move container to workspace number 2 second
+bindsym $mod+Shift+3 move container to workspace number 3 third
+bindsym $mod+Shift+4 move container to workspace number 4 build
+bindsym $mod+Shift+5 move container to workspace number 5 eyes
+bindsym $mod+Shift+6 move container to workspace number 6 remote
+bindsym $mod+Shift+7 move container to workspace number 7 save
+bindsym $mod+Shift+8 move container to workspace number 8 scratch
+bindsym $mod+Shift+9 move container to workspace number 9 net
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -182,3 +182,45 @@ bar {
 # @MPD startup for vmware
 exec vmware-user-suid-wrapper
 exec feh --bg-scale ~/.config/i3/voyager.jpg
+
+# @MPD startup programs
+exec --no-startup-id i3-msg 'workspace 5 eyes; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace 5 eyes; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace 5 eyes; exec /usr/bin/firefox'
+
+exec --no-startup-id i3-msg 'workspace 1 first; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 1 first; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 1 first; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 2 second; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 2 second; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 2 second; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 3 third; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 3 third; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 3 third; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 4 build; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 4 build; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 4 build; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 6 remote; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 6 remote; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 6 remote; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 7 save; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 7 save; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 7 save; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 8 scratch; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 8 scratch; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 8 scratch; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 9 net; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 9 net; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 9 net; exec gnome-terminal'
+
+exec --no-startup-id i3-msg 'workspace 0 basis; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 0 basis; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 0 basis; exec gnome-terminal'
+
