@@ -77,6 +77,8 @@ plugins=(
   git
   z
   history
+  mercurial
+  hg
   # zsh-autosuggestions
   colored-man-pages
 )
