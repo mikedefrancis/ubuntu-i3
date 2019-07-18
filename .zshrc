@@ -220,9 +220,9 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias .6='cd ../../../../../..'
 alias .7='cd ../../../../../../..'
-alias c='tput reset'
-alias cc='tput reset'
-alias clear='tput reset;ls'
+alias c='echo "type Control_L fool"'
+alias cc='echo "type Control_L fool"'
+alias clear='echo "type Control_L fool"'
 
 # added the following for the bookmarking script
 if [ -f ~/.cdb ]; then
