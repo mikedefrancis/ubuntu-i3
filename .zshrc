@@ -78,9 +78,9 @@ ENABLE_CORRECTION="true"
 plugins=(
   git
   z
-  history
-  mercurial
-  hg
+  # history
+  # mercurial
+  # hg
   # zsh-autosuggestions
   colored-man-pages
 )
@@ -220,9 +220,9 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias .6='cd ../../../../../..'
 alias .7='cd ../../../../../../..'
-alias c='clear'
-alias cc='clear'
-alias clear='clear;ls'
+alias c='tput reset'
+alias cc='tput reset'
+alias clear='tput reset;ls'
 
 # added the following for the bookmarking script
 if [ -f ~/.cdb ]; then
