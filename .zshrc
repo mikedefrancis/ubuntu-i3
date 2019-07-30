@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export NDK_ROOT=/home/dev/ndk/android-ndk-r15b
+
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -76,7 +78,9 @@ ENABLE_CORRECTION="true"
 plugins=(
   git
   z
-  history
+  # history
+  # mercurial
+  # hg
   # zsh-autosuggestions
   colored-man-pages
 )
@@ -148,7 +152,7 @@ alias hgbr='hg branch'
 alias hgstatus='hg status'
 alias hgstat='hg status'
 alias hgrevert='hg revert'
-alias hgcommit='hg commit'
+alias hgcommit='hg commit -m'
 alias hgadd='hg add'
 alias hgremove='hg remove'
 alias hgpush='hg push'
@@ -216,9 +220,9 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias .6='cd ../../../../../..'
 alias .7='cd ../../../../../../..'
-alias c='clear'
-alias cc='clear'
-alias clear='clear;ls'
+alias c='echo "type Control_L fool"'
+alias cc='echo "type Control_L fool"'
+alias clear='echo "type Control_L fool"'
 
 # added the following for the bookmarking script
 if [ -f ~/.cdb ]; then
@@ -399,6 +403,29 @@ alias dirsize='du --max-depth 1'
 killapp ()
 {
     pidof $1 | xargs kill
+}
+
+mymerge() {
+    local ticket=`echo $1 | cut -d_ -f1`
+    echo "Pulling default"
+    hg pull -b default
+    hg up $1
+    echo "Merging default into $1"
+    hg merge default
+    echo "Committing"
+    hg commit -m "$ticket: Merged default"
+    echo "Closing feature branch $1"
+    hg commit --close-branch -m "Closed branch"
+    hg up default
+    echo "Merging $1 into default"
+    hg merge $1
+    hg status | grep '^M'
+    echo "Committing to default"
+    read _ 
+    hg commit -m "Merged $1"
+    echo "Pushing merge"
+    read _ 
+    hg push
 }
 
 #########################
