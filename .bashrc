@@ -116,6 +116,9 @@ fi
 ####################################
 #       GIT AND MERCURIAL
 
+# i3
+alias workspace='i3 rename workspace to '
+
 # git stuff
 alias gcommit='git commit -m'
 alias gcom='git commit -m'

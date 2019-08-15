@@ -1,10 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export NDK_ROOT=/home/dev/ndk/android-ndk-r15b
-
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+
+export NDK_ROOT=/home/dev/pro/speedwell/android-ndk-r15b
 
 export EDITOR='vim'
 
@@ -152,7 +152,7 @@ alias hgbr='hg branch'
 alias hgstatus='hg status'
 alias hgstat='hg status'
 alias hgrevert='hg revert'
-alias hgcommit='hg commit -m'
+alias hgcommit='hg commit'
 alias hgadd='hg add'
 alias hgremove='hg remove'
 alias hgpush='hg push'
@@ -164,6 +164,9 @@ alias hgpull='hg pull'
 
 ##############################
 #         NAV SYSTEM
+
+# i3
+alias workspace='i3 rename workspace to '
 
 # place a tunnel in the user home 
 # redirect the tunnel to current location
@@ -220,9 +223,8 @@ alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
 alias .6='cd ../../../../../..'
 alias .7='cd ../../../../../../..'
-alias c='echo "type Control_L fool"'
-alias cc='echo "type Control_L fool"'
-alias clear='echo "type Control_L fool"'
+alias c='echo "use control+l fool"'
+alias clear='echo "use control+l fool"'
 
 # added the following for the bookmarking script
 if [ -f ~/.cdb ]; then
@@ -403,29 +405,6 @@ alias dirsize='du --max-depth 1'
 killapp ()
 {
     pidof $1 | xargs kill
-}
-
-mymerge() {
-    local ticket=`echo $1 | cut -d_ -f1`
-    echo "Pulling default"
-    hg pull -b default
-    hg up $1
-    echo "Merging default into $1"
-    hg merge default
-    echo "Committing"
-    hg commit -m "$ticket: Merged default"
-    echo "Closing feature branch $1"
-    hg commit --close-branch -m "Closed branch"
-    hg up default
-    echo "Merging $1 into default"
-    hg merge $1
-    hg status | grep '^M'
-    echo "Committing to default"
-    read _ 
-    hg commit -m "Merged $1"
-    echo "Pushing merge"
-    read _ 
-    hg push
 }
 
 #########################
