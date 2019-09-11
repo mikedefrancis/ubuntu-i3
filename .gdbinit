@@ -618,7 +618,7 @@ files."""
 
         def __init__(self, dashboard):
             gdb.Command.__init__(self, 'dashboard -layout', gdb.COMMAND_USER)
-           self.dashboard = dashboard
+            self.dashboard = dashboard
 
         def invoke(self, arg, from_tty):
             arg = Dashboard.parse_arg(arg)
