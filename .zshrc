@@ -4,8 +4,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-export NDK_ROOT=/home/dev/pro/speedwell/android-ndk-r15b
-
 export EDITOR='vim'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
