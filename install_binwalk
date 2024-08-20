@@ -1,0 +1,5 @@
+#!/bin/sh
+#git clone https://github.com/ReFirmLabs/binwalk.git
+git clone https://github.com/OSPG/binwalk.git
+cd binwalk
+./deps.sh

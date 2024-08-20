@@ -1,0 +1,12 @@
+#!/bin/sh
+sudo apt update
+sudo apt install cmake git gcc g++ python3 python3-pip -y
+git clone https://github.com/capstone-engine/capstone.git
+cd capstone
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+sudo make install
+cd ../bindings/python
+sudo python3 setup.py install

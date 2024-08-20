@@ -1,0 +1,4 @@
+#!/bin/sh
+cp .gdbinit-gef.py ~/.gdbinit-gef.py_bak
+wget -O ~/.gdbinit-gef.py https://gef.blah.cat/py
+echo "source ~/.gdbinit-gef.py" >> ~/.gdbinit

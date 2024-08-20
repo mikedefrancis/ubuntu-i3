@@ -1,44 +1,47 @@
 #!/bin/sh
 echo "INSTALLING MIKED TOOLCHAIN PIECES [YOU WILL NEED MORE THAN THIS!]..." 
 
-apt-get update
-apt-get install -y git repo cmake ninja-build clang gcc-multilib gcc-arm-none-eabi binutils-arm-none-eabi
-apt-get install -y python libncurses-dev libxml2-utils libssl-dev libsqlite3-dev libcunit1-dev expect python-pi
-apt-get install -y curl
+sudo apt-get update
+sudo apt-get install -y git repo cmake ninja-build clang gcc-multilib gcc-arm-none-eabi binutils-arm-none-eabi
+sudo apt-get install -y python libncurses-dev libxml2-utils libssl-dev libsqlite3-dev libcunit1-dev expect python-pi
+sudo apt-get install -y curl
+sudo apt-get install -y cmake ninja-build clang
+sudo apt-get install -y libncurses-dev libxml2-utils libssl-dev libsqlite3-dev libcunit1-dev expect
+sudo apt-get install -y qemu-system-arm qemu-system-x86
+sudo apt-get install -y tofrodos
+sudo apt-get install -y iproute2 gawk xvfb gcc git make net-tools libncurses5-dev tftpd zlib1g-dev libssl-dev flex bison libselinux1 wget diffstat chrpath socat xterm autoconf libtool tar unzip texinfo zlib1g-dev gcc-multilib build-essential libsdl1.2-dev libglib2.0-dev
+sudo apt-get install -y zlib1g:i386
+sudo apt-get install -y lib32ncurses5
+sudo apt-get install -y lib32z1
+sudo apt-get install -y libqt4-dev pkg-config
+sudo apt-get install -y gcc-arm-linux-gnueabihf
+sudo apt-get install -y libqt4-dev pkg-config
+sudo apt-get install -y u-boot-tools
+sudo apt-get install -y device-tree-compiler
+sudo apt-get install -y g++-arm-linux-gnueabihf 
+sudo apt-get install -y gdb-arm-none-eabi gcc-multilib
+sudo apt-get install -y git repo libncurses-dev python-pip libxml2-utils cmake ninja-build clang
+sudo apt-get install -y libssl-dev libsqlite3-dev libcunit1-dev gcc-multilib expect
+sudo apt-get install -y qemu-system-x86 qemu-system-arm gcc-arm-none-eabi binutils-arm-none-eabi
+sudo apt install -y libglib2.0-dev libgcrypt20-dev zlib1g-dev autoconf automake libtool bison flex
+sudo apt install -y git build-essential python3 python3-pip python3-pyqt5 # for binwalk
+sudo apt install -y mtd-utils zlib1g-dev liblzma-dev liblzo2-dev libssl-dev libfuse-dev squashfs-tools #for binwalk
+
 curl -sSL https://get.haskellstack.org/ | sh
-pip install camkes-deps
-pip install future
-pip install six
-pip install ply
-pip install tempita
-pip install plyplus
-pip install pyelftools
-pip install orderedset
-pip install jinja2
-apt-get install -y cmake ninja-build clang
-apt-get install -y libncurses-dev libxml2-utils libssl-dev libsqlite3-dev libcunit1-dev expect
-apt-get install -y qemu-system-arm qemu-system-x86
-apt-get install -y tofrodos
-apt-get install -y iproute2 gawk xvfb gcc git make net-tools libncurses5-dev tftpd zlib1g-dev libssl-dev flex bison libselinux1 wget diffstat chrpath socat xterm autoconf libtool tar unzip texinfo zlib1g-dev gcc-multilib build-essential libsdl1.2-dev libglib2.0-dev
-apt-get install -y zlib1g:i386
-apt-get install -y lib32ncurses5
-apt-get install -y lib32z1
-apt-get install -y libqt4-dev pkg-config
-apt-get install -y gcc-arm-linux-gnueabihf
-apt-get install -y libqt4-dev pkg-config
-apt-get install -y u-boot-tools
-apt-get install -y device-tree-compiler
-apt-get install -y g++-arm-linux-gnueabihf 
-apt-get install -y gdb-arm-none-eabi gcc-multilib
-apt-get install -y git repo libncurses-dev python-pip libxml2-utils cmake ninja-build clang
-apt-get install -y libssl-dev libsqlite3-dev libcunit1-dev gcc-multilib expect
-apt-get install -y qemu-system-x86 qemu-system-arm gcc-arm-none-eabi binutils-arm-none-eabi
-apt install -y libglib2.0-dev libgcrypt20-dev zlib1g-dev autoconf automake libtool bison flex
+pip3 install future
+pip3 install six
+pip3 install ply
+pip3 install tempita
+pip3 install plyplus
+pip3 install pyelftools
+pip3 install orderedset
+pip3 install jinja2
+pip3 install binwalk
 git submodule update --init pixman dtc
 
 # adding these again because of a strange bug
-apt-get install -y gcc-aarch64-linux-gnu
-apt-get install -y g++-aarch64-linux-gnu
+sudo apt-get install -y gcc-aarch64-linux-gnu
+sudo apt-get install -y g++-aarch64-linux-gnu
 
 #end of file
 

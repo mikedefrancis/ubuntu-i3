@@ -1,0 +1,3 @@
+#!/bin/sh
+echo running: kstool arm "add r0, r1, r2"
+kstool arm "add r0, r1, r2"

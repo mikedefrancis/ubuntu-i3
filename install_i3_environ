@@ -8,9 +8,11 @@ case $choice in
     * ) echo 'Aborting.'; exit;; 
 esac
 
-echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..." 
+echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..."
+mkdir ~/.config/i3
 cp ~/.config/i3/config ~/.config/i3/config_nice_bak
 cp i3-config ~/.config/i3/config
+cp voyager.png ~/.config/i3/voyager.png
 cp voyager.jpg ~/.config/i3/voyager.jpg
 
 echo "COPYING FILES... DONE. YOU MUST NOW RUN source ~/.bashrc"

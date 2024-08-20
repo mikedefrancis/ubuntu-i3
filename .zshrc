@@ -4,7 +4,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -22,7 +22,7 @@ ZSH_THEME="bira"
 setopt AUTO_CD
 
 # only fools wouldn't do this ;-)
-export EDITOR="vi"
+export EDITOR="vnim"
 
 alias -g G="| grep"
 alias -g L="| less"
@@ -368,8 +368,8 @@ alias vmware-fix='vmware-user-suid-wrapper'
 alias cnotes='ls ~/notes/;cat ~/notes/notes.txt | more'    
 alias notes='vnotes'                        
 alias bnotes='less -g ~/notes/notes.txt'
-alias allnotes='vim ~/notes/archivenotes.txt'    
-alias vnotes='save5;cd ~/notes;vim ~/notes/notes.txt;ret5'    
+alias allnotes='nvim ~/notes/archivenotes.txt'    
+alias vnotes='save5;cd ~/notes;nvim ~/notes/notes.txt;ret5'    
 alias editnotes='vnotes'    
 alias enotes='vnotes'                                   
 alias dnotes='echo USE delnotes to delete all notes'    
@@ -437,11 +437,25 @@ alias mkill='kill -9'
 alias killall='kill -9'
 alias forcekill='kill -9'
 
+#ghidra
+alias ghidra='/home/user/miketools/ghidra_toolbox/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
+
+#python virtual environment
+alias activate_venv='source miketools_pyenv/bin/activate'
+alias deactivate_venv='deactivate'
+
+
+#vscode
+alias vscode='code'
+alias vs='code'
+
+alias lock='i3lock -i ~/.config/i3/hyperion.png' 
+
 # VIM
-alias vi='vim'                                               
-alias v='vim'
-alias vim='vim -p'
-alias editbash='vim ~/.bashrc'
+alias vi='nvim'                                               
+alias v='nvim'
+alias vim='nvim -p'
+alias editbash='nvim ~/.bashrc'
 alias sourcebash='source ~/.bashrc'    
 alias sourcezsh='source ~/.zshrc'
 alias srczsh='source ~/.zshrc'    
@@ -501,7 +515,7 @@ alias hex='ghex'
 
 PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
 
-feh --bg-scale ~/.config/i3/voyager.jpg
+feh --bg-scale ~/.config/i3/hyperion.jpg
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
