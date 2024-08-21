@@ -2,7 +2,7 @@
 echo "INSTALLING MIKED TOOLCHAIN PIECES [YOU WILL NEED MORE THAN THIS!]..." 
 
 sudo apt-get update
-sudo apt-get install -y git repo cmake ninja-build clang gcc-multilib gcc-arm-none-eabi binutils-arm-none-eabi
+sudo apt-get install -y git repo cmake ninja-build clang
 sudo apt-get install -y python libncurses-dev libxml2-utils libssl-dev libsqlite3-dev libcunit1-dev expect python-pi
 sudo apt-get install -y curl
 sudo apt-get install -y cmake ninja-build clang
@@ -14,18 +14,40 @@ sudo apt-get install -y zlib1g:i386
 sudo apt-get install -y lib32ncurses5
 sudo apt-get install -y lib32z1
 sudo apt-get install -y libqt4-dev pkg-config
+
+sudo apt-get install -y gcc-multilib gcc-arm-none-eabi
 sudo apt-get install -y gcc-arm-linux-gnueabihf
+sudo apt-get install -y gcc-arm-linux-gnueabi
+sudo apt-get install -y binutils-arm-linux-gnueabihf binutils-arm-none-eabi
+
+sudo apt-get install -y gcc-aarch64-linux-gnu
+sudo apt-get install -y g++-aarch64-linux-gnu
+
 sudo apt-get install -y libqt4-dev pkg-config
 sudo apt-get install -y u-boot-tools
 sudo apt-get install -y device-tree-compiler
 sudo apt-get install -y g++-arm-linux-gnueabihf 
 sudo apt-get install -y gdb-arm-none-eabi gcc-multilib
-sudo apt-get install -y git repo libncurses-dev python-pip libxml2-utils cmake ninja-build clang
+sudo apt-get install -y git repo libncurses-dev libxml2-utils cmake ninja-build clang
 sudo apt-get install -y libssl-dev libsqlite3-dev libcunit1-dev gcc-multilib expect
-sudo apt-get install -y qemu-system-x86 qemu-system-arm gcc-arm-none-eabi binutils-arm-none-eabi
 sudo apt install -y libglib2.0-dev libgcrypt20-dev zlib1g-dev autoconf automake libtool bison flex
 sudo apt install -y git build-essential python3 python3-pip python3-pyqt5 # for binwalk
 sudo apt install -y mtd-utils zlib1g-dev liblzma-dev liblzo2-dev libssl-dev libfuse-dev squashfs-tools #for binwalk
+sudo apt install -y python3-dev
+sudo apt install -y libssl-dev libffi-dev python3-setuptools
+sudo apt install -y libcapstone-dev
+sudo apt install -y z3
+sudo apt install -y libgmp-dev libantlr3c-dev
+
+#install all the qemu
+sudo apt install -y qemu-user qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
+sudo apt install -y qemu-system-x86 qemu-system-arm qemu-utils
+
+#these are deps of firmadyne
+sudo apt install -y fakeroot libqt4-dev busybox-static libarchive-tools default-jdk libpq-dev kpartx postgresql postgresql-contrib libpq-dev
+
+#this was broken on ubuntu 24.04 last I tried as of 8/21/24
+sudo apt install -y postgresql-14
 
 curl -sSL https://get.haskellstack.org/ | sh
 pip3 install future
@@ -36,12 +58,13 @@ pip3 install plyplus
 pip3 install pyelftools
 pip3 install orderedset
 pip3 install jinja2
+pip3 install pipx
+pip3 install barf
 pip3 install binwalk
+pip3 install z3-solver
+pip3 install toml
+pip3 install frida-tools
 git submodule update --init pixman dtc
-
-# adding these again because of a strange bug
-sudo apt-get install -y gcc-aarch64-linux-gnu
-sudo apt-get install -y g++-aarch64-linux-gnu
 
 #end of file
 

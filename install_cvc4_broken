@@ -1,0 +1,18 @@
+#!/bin/sh
+# git clone https://github.com/arminbiere/cadical.git
+# cd cadical
+# ./configure
+# make -j$(nproc)
+# sudo make install
+# cadical --version
+# cd ..
+git clone https://github.com/CVC4/CVC4-archived.git
+cd CVC4-archived
+mkdir build
+cd build
+./configure --auto-download
+cmake ..
+make -j$(nproc)  # Use all available cores for faster compilation
+sudo make install
+cvc4 --version
+pip3 install cvc4-python-bindings

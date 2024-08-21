@@ -9,4 +9,4 @@ cmake ..
 make -j$(nproc)
 sudo make install
 cd ../bindings/python
-sudo python3 setup.py install
+python3 setup.py install
