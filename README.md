@@ -15,7 +15,6 @@ I use this directory in order to quickly set up my linux environment on other co
 * run ./install_zsh_environ to backup and replace your .zshrc file and add other utilities. You may need to run this script multiple times for it to install all of the things successfully. You will need to resource your .zshrc file afterwards (e.g., source ~/.zshrc)
 * run ./install_i3_environ AFTER you have already started using vanilla i3. It will move the background image and the i3 config file into the appropriate places. You will have to relog to start using the new config.
 * The other install scripts in here install toolchains and apps that I find useful.
-* The .vimrc file in here is used only as a backup by me. If you want to use my .vimrc, please look into using the "warpcore" vimrc file located at https://www.github.com/mikedefrancis/vimrc.
 
 ## TO INSTALL i3
 

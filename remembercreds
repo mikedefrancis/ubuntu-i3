@@ -1,5 +1,4 @@
 #!/bin/bash
-#Copyright 2017, Mike DeFrancis
 # No license is required to use or modify this software. 
 # No warrantees are provided. The implied warrantee of fitness for a particular use is not provided.
 #To prevent having to type credentials many times. Note that git credential caching stores user/pass in ram not disk

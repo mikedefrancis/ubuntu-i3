@@ -85,6 +85,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+
 ##############################################################################
 # History Configuration
 ##############################################################################
@@ -100,6 +101,8 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 source ~/.oh-my-zsh/plugins/auto-ls.zsh
 source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+source /home/user/usertools/user_pyenv_1/bin/activate
 
 # User configuration
 
@@ -438,18 +441,21 @@ alias killall='kill -9'
 alias forcekill='kill -9'
 
 #ghidra
-alias ghidra='/home/user/miketools/ghidra_toolbox/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
+alias ghidra='/home/user/usertools/ghidra_toolbox/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
 
 #python virtual environment
-alias activate_venv='source miketools_pyenv/bin/activate'
+alias activate='source /home/user/usertools/user_pyenv_1/bin/activate'
+alias activate_venv='source /home/user/usertools/user_pyenv_1/bin/activate'
 alias deactivate_venv='deactivate'
 
+#python
+alias python='python3'
 
 #vscode
 alias vscode='code'
 alias vs='code'
 
-alias lock='i3lock -i ~/.config/i3/hyperion.png' 
+alias lock='i3lock -i ~/.config/i3/voyager.png' 
 
 # VIM
 alias vi='nvim'                                               
@@ -515,7 +521,7 @@ alias hex='ghex'
 
 PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
 
-feh --bg-scale ~/.config/i3/hyperion.jpg
+feh --bg-scale ~/.config/i3/voyager.jpg
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon

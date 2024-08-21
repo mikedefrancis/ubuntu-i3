@@ -30,4 +30,4 @@ sudo apt-get install -y git
 sudo apt-get install -y tftp tftp-setver
 sudo apt-get install -y ssh
 
-echo "INSTALLING MIKED APPS... complete." 
+echo "INSTALLING USER APPS... complete." 

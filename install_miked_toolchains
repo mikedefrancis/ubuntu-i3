@@ -1,5 +1,5 @@
 #!/bin/sh
-echo "INSTALLING MIKED TOOLCHAIN PIECES [YOU WILL NEED MORE THAN THIS!]..." 
+echo "INSTALLING USER TOOLCHAIN PIECES [YOU WILL NEED MORE THAN THIS!]..." 
 
 sudo apt-get update
 sudo apt-get install -y git repo cmake ninja-build clang
@@ -68,6 +68,6 @@ git submodule update --init pixman dtc
 
 #end of file
 
-echo "INSTALLING MIKED TOOLCHAIN PIECES [YOU WILL NEED MORE THAN THIS!]... DONE." 
+echo "INSTALLING USER TOOLCHAIN PIECES [YOU WILL NEED MORE THAN THIS!]... DONE." 
 
 

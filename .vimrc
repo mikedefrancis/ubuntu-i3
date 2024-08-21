@@ -1,7 +1,5 @@
 " ============ WARPCORE ===========
 "
-" Copyright 2019, Mike DeFrancis. mike(AT)defrancis(dot)org
-"
 " @Warrantee
 " There is no warrantee provided for this software, not even an implied
 " warrantee regarding fitness for a particular use. I am not responsible
