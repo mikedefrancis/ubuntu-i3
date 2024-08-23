@@ -1,4 +1,7 @@
 #!/bin/sh
-cp .gdbinit-gef.py ~/.gdbinit-gef.py_bak
-wget -O ~/.gdbinit-gef.py https://gef.blah.cat/py
-echo "source ~/.gdbinit-gef.py" >> ~/.gdbinit
+# OLD..
+# cp .gdbinit-gef.py ~/.gdbinit-gef.py_bak
+# wget -O ~/.gdbinit-gef.py https://gef.blah.cat/py
+# echo "source ~/.gdbinit-gef.py" >> ~/.gdbinit
+# NEW..
+wget -q https://raw.githubusercontent.com/bata24/gef/dev/install.sh -O- | sed -e 's/pip3 install/pip3 install --break-system-packages/g' | sh

@@ -1,0 +1,22 @@
+#!/bin/sh
+source /home/user/usertools/user_pyenv_1/bin/activate
+pip3 install future
+pip3 install six
+pip3 install ply
+pip3 install tempita
+pip3 install plyplus
+pip3 install pyelftools
+pip3 install orderedset
+pip3 install jinja2
+pip3 install pipx
+pip3 install barf
+pip3 install binwalk
+pip3 install z3-solver
+pip3 install toml
+pip3 install frida-tools
+pip3 install pytest
+pip3 install lief
+pip3 install python-magic
+pip3 install psycopg2
+pip install --upgrade setuptools
+

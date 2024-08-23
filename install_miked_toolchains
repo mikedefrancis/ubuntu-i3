@@ -6,10 +6,9 @@ sudo apt-get install -y git repo cmake ninja-build clang
 sudo apt-get install -y python libncurses-dev libxml2-utils libssl-dev libsqlite3-dev libcunit1-dev expect python-pi
 sudo apt-get install -y curl
 sudo apt-get install -y cmake ninja-build clang
-sudo apt-get install -y libncurses-dev libxml2-utils libssl-dev libsqlite3-dev libcunit1-dev expect
-sudo apt-get install -y qemu-system-arm qemu-system-x86
+sudo apt-get install -y libncurses-dev libxml2-utils libsqlite3-dev libcunit1-dev expect
 sudo apt-get install -y tofrodos
-sudo apt-get install -y iproute2 gawk xvfb gcc git make net-tools libncurses5-dev tftpd zlib1g-dev libssl-dev flex bison libselinux1 wget diffstat chrpath socat xterm autoconf libtool tar unzip texinfo zlib1g-dev gcc-multilib build-essential libsdl1.2-dev libglib2.0-dev
+sudo apt-get install -y iproute2 gawk xvfb gcc git make net-tools libncurses5-dev tftpd zlib1g-dev flex bison libselinux1 wget diffstat chrpath socat xterm autoconf libtool tar unzip texinfo zlib1g-dev gcc-multilib build-essential libsdl1.2-dev libglib2.0-dev
 sudo apt-get install -y zlib1g:i386
 sudo apt-get install -y lib32ncurses5
 sudo apt-get install -y lib32z1
@@ -29,41 +28,32 @@ sudo apt-get install -y device-tree-compiler
 sudo apt-get install -y g++-arm-linux-gnueabihf 
 sudo apt-get install -y gdb-arm-none-eabi gcc-multilib
 sudo apt-get install -y git repo libncurses-dev libxml2-utils cmake ninja-build clang
-sudo apt-get install -y libssl-dev libsqlite3-dev libcunit1-dev gcc-multilib expect
-sudo apt install -y libglib2.0-dev libgcrypt20-dev zlib1g-dev autoconf automake libtool bison flex
-sudo apt install -y git build-essential python3 python3-pip python3-pyqt5 # for binwalk
-sudo apt install -y mtd-utils zlib1g-dev liblzma-dev liblzo2-dev libssl-dev libfuse-dev squashfs-tools #for binwalk
+sudo apt-get install -y libsqlite3-dev libcunit1-dev gcc-multilib expect
+sudo apt install -y libglib2.0-dev libgcrypt20-dev zlib1g-dev automake libtool bison flex
+sudo apt install -y git python3 python3-pip python3-pyqt5 # for binwalk
+sudo apt install -y mtd-utils zlib1g-dev liblzma-dev liblzo2-dev libfuse-dev squashfs-tools #for binwalk
 sudo apt install -y python3-dev
-sudo apt install -y libssl-dev libffi-dev python3-setuptools
+sudo apt install -y libffi-dev python3-setuptools
 sudo apt install -y libcapstone-dev
 sudo apt install -y z3
 sudo apt install -y libgmp-dev libantlr3c-dev
 
 #install all the qemu
 sudo apt install -y qemu-user qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
-sudo apt install -y qemu-system-x86 qemu-system-arm qemu-utils
+sudo apt install -y qemu-system-x86 qemu-system-arm qemu-utils qemu-system qemu-system-mips qemu-user-static qemu-util  
 
 #these are deps of firmadyne
 sudo apt install -y fakeroot libqt4-dev busybox-static libarchive-tools default-jdk libpq-dev kpartx postgresql postgresql-contrib libpq-dev
+sudo apt install -y git libprotoc-dev protobuf-compiler libboost-all-dev python3-virtualenv automake
+sudo apt install -y postgresql psycopg2
 
 #this was broken on ubuntu 24.04 last I tried as of 8/21/24
 sudo apt install -y postgresql-14
 
+#for ghidra and friends also using java
+sudo apt install openjdk-17-jdk
+
 curl -sSL https://get.haskellstack.org/ | sh
-pip3 install future
-pip3 install six
-pip3 install ply
-pip3 install tempita
-pip3 install plyplus
-pip3 install pyelftools
-pip3 install orderedset
-pip3 install jinja2
-pip3 install pipx
-pip3 install barf
-pip3 install binwalk
-pip3 install z3-solver
-pip3 install toml
-pip3 install frida-tools
 git submodule update --init pixman dtc
 
 #end of file

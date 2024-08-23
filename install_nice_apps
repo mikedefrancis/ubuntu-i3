@@ -25,6 +25,8 @@ sudo apt-get install -y netcat
 sudo apt-get install -y git
 
 # put some more cool things here
+sudo snap install drawio
+sudo snap install jupyterlab-desktop --classic
 
 # Some applications
 sudo apt-get install -y tftp tftp-setver
