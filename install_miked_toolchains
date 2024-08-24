@@ -38,6 +38,7 @@ sudo apt install -y libcapstone-dev
 sudo apt install -y z3
 sudo apt install -y libgmp-dev libantlr3c-dev
 sudo apt install -y pybind11-dev
+sudo apt install -y libelf-dev
 
 #install all the qemu
 sudo apt install -y qemu-user qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
