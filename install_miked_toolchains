@@ -19,6 +19,11 @@ sudo apt-get install -y gcc-arm-linux-gnueabihf
 sudo apt-get install -y gcc-arm-linux-gnueabi
 sudo apt-get install -y binutils-arm-linux-gnueabihf binutils-arm-none-eabi
 
+#uboot
+sudo apt-get install -y gcc-powerpc-linux-gnu
+sudo apt-get install -y swig
+sudo apt-get install -y libgnutls28-dev
+
 sudo apt-get install -y gcc-aarch64-linux-gnu
 sudo apt-get install -y g++-aarch64-linux-gnu
 
@@ -38,7 +43,8 @@ sudo apt install -y libcapstone-dev
 sudo apt install -y z3
 sudo apt install -y libgmp-dev libantlr3c-dev
 sudo apt install -y pybind11-dev
-sudo apt install -y libelf-dev
+sudo apt install -y libelf-devsudo apt update
+sudo apt install -y ruby-full
 
 #install all the qemu
 sudo apt install -y qemu-user qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virt-manager
@@ -57,6 +63,9 @@ sudo apt install openjdk-17-jdk
 
 curl -sSL https://get.haskellstack.org/ | sh
 git submodule update --init pixman dtc
+
+sudo gem install bundler
+sudo gem install one_gadget
 
 #end of file
 

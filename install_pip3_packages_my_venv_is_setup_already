@@ -18,5 +18,6 @@ pip3 install pytest
 pip3 install lief
 pip3 install python-magic
 pip3 install psycopg2
+pip3 install poetry
 pip install --upgrade setuptools
 

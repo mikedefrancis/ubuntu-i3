@@ -27,6 +27,10 @@ export EDITOR="vnim"
 alias -g G="| grep"
 alias -g L="| less"
 
+alias h='history'
+
+alias fkill='sudo kill -9'
+
 
 ### 2019 MULTI-TERMINAL MOVEMENT BINDINGS ###
 # bind -x '"\C-k": "\S-Page U"'
@@ -251,11 +255,16 @@ alias save5='cdb -d save5; cdb -c save5'
 alias ret5='cdb -g save5'
 
 alias mark='cdb -c'
+alias bookmark='cdb -c'
+alias bookmarks='cdb -l'
+alias delbookmark='cdb -d'
+alias delmark='cdb -d'
+alias gotobookmark='cdb -g'
+alias goto='cdb -g'
 
 alias places='cdb -l'
 alias marks='cdb -l'
 alias saves='cdb -l'
-alias goto='cdb -g'
 
 #some aliases to use cdb
 alias bmark='cdb -c'
@@ -450,6 +459,9 @@ alias deactivate_venv='deactivate'
 
 #python
 alias python='python3'
+
+#signal
+alias signal='signal-desktop &'
 
 #vscode
 alias vscode='code'

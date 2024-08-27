@@ -35,6 +35,11 @@ function cdb() {
         # list bookmarks
         -l) shift
             echo " (note for save,save1,save2,etc. use ret,ret1,ret2,etc. to jump there.)"
+			echo " NOTE THE BELOW ALIAS FROM .ZSHRC"
+			echo " marks          #show saved bookmarks and this help"
+			echo " goto [name]    #go to the specified bookmark location"
+            echo " mark [name]    #create bookmark with name"
+            echo " delmark [name] #delete bookmark with name"
             echo "BOOKMARK   || cd PATH"
             for filename in ~/.cd_bookmarks/*; do
                 markname=`basename "$filename"`
