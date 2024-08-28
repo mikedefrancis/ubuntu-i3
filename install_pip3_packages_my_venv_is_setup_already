@@ -1,5 +1,4 @@
 #!/bin/sh
-source /home/user/usertools/user_pyenv_1/bin/activate
 pip3 install future
 pip3 install six
 pip3 install ply

@@ -24,6 +24,12 @@ sudo apt-get install -y gcc-powerpc-linux-gnu
 sudo apt-get install -y swig
 sudo apt-get install -y libgnutls28-dev
 
+#for volume control in i3
+sudo apt-get install -y alsa-utils
+
+#for resolution control in i3
+sudo apt-get install -y arandr
+
 sudo apt-get install -y gcc-aarch64-linux-gnu
 sudo apt-get install -y g++-aarch64-linux-gnu
 
