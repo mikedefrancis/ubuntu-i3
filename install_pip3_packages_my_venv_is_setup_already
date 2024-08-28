@@ -19,5 +19,6 @@ pip3 install lief
 pip3 install python-magic
 pip3 install psycopg2
 pip3 install poetry
+pip3 install mypy
 pip install --upgrade setuptools
 

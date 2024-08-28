@@ -2,4 +2,5 @@
 mkdir getdocker
 cd getdocker
 curl -o get_docker.sh https://get.docker.com
+chmod +x get_docker.sh
 ./get_docker.sh
