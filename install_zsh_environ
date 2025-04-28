@@ -5,10 +5,10 @@ read choice
 case $choice in
     [Nn]* ) echo 'Aborting.'; exit;;
     [Yy]* ) echo "proceeding with install.";;
-    * ) echo 'Aborting.'; exit;; 
+    * ) echo 'Aborting.'; exit;;
 esac
 
-echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..." 
+echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..."
 cp .xsession ~/.xsession
 sudo cp remembercreds /usr/bin/remembercreds
 sudo cp forgetcreds /usr/bin/forgetcreds
@@ -18,6 +18,9 @@ cp .gdbinit ~/.gdbinit
 sudo cp diffconfig /usr/bin/diffconfig
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 # curl -L https://git.io/auto-ls > ~/.oh-my-zsh/plugins/auto-ls.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

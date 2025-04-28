@@ -114,8 +114,8 @@ bindsym $mod+m move workspace to output right
 # bindsym $mod+Shift+m move container to output left
 
 # switch to workspace
-bindsym $mod+grave workspace number 0 nexus
-bindsym $mod+1 workspace number 1 worker
+bindsym $mod+grave workspace number 0 worker
+bindsym $mod+1 workspace number 1 nexus
 bindsym $mod+2 workspace number 2 zealot
 bindsym $mod+3 workspace number 3 reaver
 bindsym $mod+4 workspace number 4 gateway
@@ -124,10 +124,25 @@ bindsym $mod+6 workspace number 6 shuttle
 bindsym $mod+7 workspace number 7 templar
 bindsym $mod+8 workspace number 8 scout
 bindsym $mod+9 workspace number 9 forge
+bindsym $mod+0 workspace number 23 outpost
+
+bindsym $mod+F1 workspace number 11 forest
+bindsym $mod+F2 workspace number 12 mountain
+bindsym $mod+F3 workspace number 13 plains
+bindsym $mod+F4 workspace number 14 swamp
+bindsym $mod+F5 workspace number 15 island
+bindsym $mod+F6 workspace number 16 hand
+bindsym $mod+F7 workspace number 17 graveyard
+bindsym $mod+F8 workspace number 18 instant
+bindsym $mod+F9 workspace number 19 sorcery
+bindsym $mod+F10 workspace number 20 creature
+bindsym $mod+F11 workspace number 21 artifact
+bindsym $mod+F12 workspace number 22 enchantment
+
 
 # move focused container to workspace
-bindsym $mod+Shift+grave move container to workspace number 0 nexus
-bindsym $mod+Shift+1 move container to workspace number 1 worker
+bindsym $mod+Shift+grave move container to workspace number 0 worker
+bindsym $mod+Shift+1 move container to workspace number 1 nexus
 bindsym $mod+Shift+2 move container to workspace number 2 zealot
 bindsym $mod+Shift+3 move container to workspace number 3 reaver
 bindsym $mod+Shift+4 move container to workspace number 4 gateway
@@ -136,8 +151,23 @@ bindsym $mod+Shift+6 move container to workspace number 6 shuttle
 bindsym $mod+Shift+7 move container to workspace number 7 templar
 bindsym $mod+Shift+8 move container to workspace number 8 scout
 bindsym $mod+Shift+9 move container to workspace number 9 forge
+bindsym $mod+Shift+0 move container to workspace number 23 outpost
 
-bindsym $mod+Control+grave rename workspace number 
+bindsym $mod+Shift+F1 move container to workspace number 11 forest
+bindsym $mod+Shift+F2 move container to workspace number 12 mountain
+bindsym $mod+Shift+F3 move container to workspace number 13 plains
+bindsym $mod+Shift+F4 move container to workspace number 14 swamp
+bindsym $mod+Shift+F5 move container to workspace number 15 island
+bindsym $mod+Shift+F6 move container to workspace number 16 hand
+bindsym $mod+Shift+F7 move container to workspace number 17 graveyard
+bindsym $mod+Shift+F8 move container to workspace number 18 instant
+bindsym $mod+Shift+F9 move container to workspace number 19 sorcery
+bindsym $mod+Shift+F10 move container to workspace number 20 creature
+bindsym $mod+Shift+F11 move container to workspace number 21 artifact
+bindsym $mod+Shift+F12 move container to workspace number 22 enchantment
+
+
+bindsym $mod+Control+grave rename workspace number
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -191,7 +221,5 @@ exec vmware-user-suid-wrapper
 exec feh --bg-scale ~/.config/i3/voyager.jpg
 
 # @MPD startup programs
-exec --no-startup-id i3-msg 'workspace 0 nexus; exec firefox "www.chatgpt.com"'
-exec --no-startup-id i3-msg 'workspace 9 forge; exec gnome-terminal'
-exec --no-startup-id i3-msg 'workspace 1 worker; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 0 worker; exec gnome-terminal'
 

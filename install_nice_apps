@@ -1,14 +1,14 @@
 #!/bin/sh
-echo "INSTALLING NICE APPS..." 
+echo "INSTALLING NICE APPS..."
 echo "SOME USEFUL TOOLS FOR EDITING, BROWSING, ETC."
 
 # sudo apt-get update
-sudo apt-get install -y neovim
+sudo apt-get install -y vim ranger fzf
 sudo apt-get install -y chromium-browser
 sudo apt-get install -y meld
 sudo apt-get install -y htop
 sudo apt-get install -y i3
-sudo apt-get install -y ltrace 
+sudo apt-get install -y ltrace
 sudo apt-get install -y rtrace
 sudo apt-get install -y strace
 sudo apt-get install -y nmap
@@ -32,4 +32,4 @@ sudo snap install jupyterlab-desktop --classic
 sudo apt-get install -y tftp tftp-setver
 sudo apt-get install -y ssh
 
-echo "INSTALLING USER APPS... complete." 
+echo "INSTALLING USER APPS... complete."

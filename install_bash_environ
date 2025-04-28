@@ -5,10 +5,14 @@ read choice
 case $choice in
     [Nn]* ) echo 'Aborting.'; exit;;
     [Yy]* ) echo "proceeding with install.";;
-    * ) echo 'Aborting.'; exit;; 
+    * ) echo 'Aborting.'; exit;;
 esac
 
-echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..." 
+
+
+
+
+echo "COPYING FILES AND CLOBBERING OLD ENVIRONMENT..."
 cp ~/.bashrc ~/.bashrc_nice_bak
 sudo cp remembercreds /usr/bin/remembercreds
 sudo cp forgetcreds /usr/bin/forgetcreds

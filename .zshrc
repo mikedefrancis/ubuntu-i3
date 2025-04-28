@@ -4,13 +4,15 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
-export EDITOR='nvim'
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="bira"
+# ZSH_THEME="bira" #THIS ONE JUST OKAY
+# ZSH_THEME="agnoster" #VERY GOOD ONE
+ZSH_THEME="bureau" #VERY GOOD ONE
+# ZSH_THEME="ys" #THIS ONE IS MEH
+# ZSH_THEME="avit" #THIS ONE IS GREAT BUT FOLDER COLORS ARE OFF
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -21,16 +23,35 @@ ZSH_THEME="bira"
 # MAY 2018 UPDATE:
 setopt AUTO_CD
 
+setopt aliases
+setopt complete_aliases
+
+alias color='bash -c "$(wget -qO- https://git.io/vQgMr)"'
+
 # only fools wouldn't do this ;-)
-export EDITOR="vnim"
+export EDITOR="vim"
+
+alias grep='rg'
 
 alias -g G="| grep"
 alias -g L="| less"
+
+alias pdf='zathura'
 
 alias h='history'
 
 alias fkill='sudo kill -9'
 
+alias opera='opera &; disown'
+
+function run() {
+  eval "nohup $* >/dev/null 2>&1 &"
+}
+# function run() {
+#     nohup "$@" >/dev/null 2>&1 &
+# }
+
+#eval $(keychain --eval --agents ssh id_rsa)
 
 ### 2019 MULTI-TERMINAL MOVEMENT BINDINGS ###
 # bind -x '"\C-k": "\S-Page U"'
@@ -79,12 +100,12 @@ ENABLE_CORRECTION="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  colored-man-pages
   z
   # history
-  # mercurial
-  # hg
+  # fast-syntax-highlighting
+  # fzf-tab
   # zsh-autosuggestions
-  colored-man-pages
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -93,9 +114,9 @@ source $ZSH/oh-my-zsh.sh
 ##############################################################################
 # History Configuration
 ##############################################################################
-HISTSIZE=5000               #How many lines of history to keep in memory
+HISTSIZE=500000               #How many lines of history to keep in memory
 HISTFILE=~/.zsh_history     #Where to save history to disk
-SAVEHIST=5000               #Number of history entries to save to disk
+SAVEHIST=500000              #Number of history entries to save to disk
 #HISTDUP=erase               #Erase duplicates in the history file
 setopt    appendhistory     #Append history to the history file (no overwriting)
 setopt    sharehistory      #Share history across terminals
@@ -105,8 +126,30 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 source ~/.oh-my-zsh/plugins/auto-ls.zsh
 source ~/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+source /home/mike.defrancis/usertools/user_pyenv_1/bin/activate
 
-source /home/user/usertools/user_pyenv_1/bin/activate
+#trying out FZF-TAB
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# custom fzf flags
+# NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+# To make fzf-tab follow FZF_DEFAULT_OPTS.
+# NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
+
+
 
 # User configuration
 
@@ -125,18 +168,32 @@ source /home/user/usertools/user_pyenv_1/bin/activate
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
+alias zshrc='vim ~/.zshrc'
+alias bashrc='vim ~/.bashrc'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
+
+alias screenshot='flameshot &; disown'
+alias snapshot='flameshot; & disown'
+alias snap='flameshot &; disown'
 
 ####################################
 #       GIT AND MERCURIAL
 
 # git stuff
+alias ggraph='gitk --all &; disown'
+alias gk='gitk --all'
+alias gitk='gitk --all'
+alias glog='git log --all --graph'
+alias gl='git log --all --graph'
 alias gcommit='git commit -m'
+alias gc='git commit -m'
 alias gcom='git commit -m'
+alias gd='git diff'
+alias gdiff='git diff'
 alias gpush='git push'
 alias gcheckout='git checkout'
-alias gpull='git pull'
+alias gpull='git pull --rebase'
 alias gitstat='git status'
 alias gitstatus='git status'
 alias gstat='git status'
@@ -144,43 +201,32 @@ alias gitbranch='git branch'
 alias gitbr='git branch'
 alias gbranch='git branch'
 alias gbr='git branch'
-alias gconfig='git config'
+# alias gconfig='git config'
 alias gitconf='git config'
 alias gitconfig='git config'
 alias gadd='git add'
 alias grm='git rm'
 alias ggg='git status'
 
-# hg stuff
-alias hgbranch='hg branch'
-alias hgbr='hg branch'
-alias hgstatus='hg status'
-alias hgstat='hg status'
-alias hgrevert='hg revert'
-alias hgcommit='hg commit'
-alias hgadd='hg add'
-alias hgremove='hg remove'
-alias hgpush='hg push'
-alias hgcheckout='hg checkout'
-alias hgmerge='hg merge'
-alias hgupdate='hg update'
-alias hgup='hg update'
-alias hgpull='hg pull'
-
 ##############################
 #         NAV SYSTEM
 
 # i3
 alias workspace='i3 rename workspace to '
+alias i3show='wmctrl -l'
+alias psall='ps -e'
 
-# place a tunnel in the user home 
+# place a tunnel in the user home
 # redirect the tunnel to current location
 alias tun='rm ~/tun;ln -sf "$(pwd)" ~/tun'
 alias tunnel='rm ~/tunnel;ln -sf "$(pwd)" ~/tunnel'
 alias tunnel2='rm ~/tunnel2;ln -sf "$(pwd)" ~/tunnel2'
 alias tunnel3='rm ~/tunnel3;ln -sf "$(pwd)" ~/tunnel3'
-       
-alias ff='nautilus .'
+
+# alias ranger='ranger-cd' #careful to avoid recursive aliases
+alias f='ranger-cd'
+alias fd='ranger-cd'
+# alias fd='cd ~/' #fd for fuzzy file search in shell
 alias folder='nautilus --no-desktop .'
 alias folders='nautilus --no-desktop .'
 alias nautilusi3='nautilus --no-desktop .'
@@ -196,14 +242,13 @@ alias jump='pushd .; cd '
 # find the process by searching for its name:
 alias findproc='ps -A | grep'
 alias killproc='kill'
-## get rid of command not found ##
-alias cd..='cd ..'
 
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# SOME MORE INSANITY TO MAKE IT POSSIBLE TO CHANGE DIRECTORIES FASTER
 ## a quick way to get out of current directory ##
 alias cd..='cd ..'
 alias up="cd .."
@@ -284,8 +329,8 @@ alias cheat="cheats"
 alias echeats="vi ~/.arc/cheats.txt"
 alias ccheats="cat ~/.arc/cheats.txt"
 alias acheat="echo \"use 'echo !! >> CHEATS' or 'echo [CTRL-R] >> CHEATS' or 'echo [UP ARROW] >> CHEATS'\""
-alias dcheat="sed -i '$ d' ~/.arc/cheats.txt; cheats" 
-alias pushcheats="cat ~/.arc/cheats.txt >> ~/.arc/oldcheats.txt;rm ~/.arc/cheats.txt; touch ~/.arc/cheats.txt; cheats" 
+alias dcheat="sed -i '$ d' ~/.arc/cheats.txt; cheats"
+alias pushcheats="cat ~/.arc/cheats.txt >> ~/.arc/oldcheats.txt;rm ~/.arc/cheats.txt; touch ~/.arc/cheats.txt; cheats"
 
 # archival cheatsheet
 alias oldcheats="echo 'ARCHIVE OF CHEATS'; test -f ~/.arc/oldcheats.txt && less -N ~/.arc/oldcheats.txt"
@@ -304,28 +349,6 @@ alias dcheat8="sed -i.bak -e '8d' CHEATS; cheats"
 alias dcheat9="sed -i.bak -e '9d' CHEATS; cheats"
 alias dcheat10="sed -i.bak -e '10d' CHEATS; cheats"
 
-alias dcheat11="sed -i.bak -e '11d' CHEATS; cheats"
-alias dcheat12="sed -i.bak -e '12d' CHEATS; cheats"
-alias dcheat13="sed -i.bak -e '13d' CHEATS; cheats"
-alias dcheat14="sed -i.bak -e '14d' CHEATS; cheats"
-alias dcheat15="sed -i.bak -e '15d' CHEATS; cheats"
-alias dcheat16="sed -i.bak -e '16d' CHEATS; cheats"
-alias dcheat17="sed -i.bak -e '17d' CHEATS; cheats"
-alias dcheat18="sed -i.bak -e '18d' CHEATS; cheats"
-alias dcheat19="sed -i.bak -e '19d' CHEATS; cheats"
-alias dcheat20="sed -i.bak -e '20d' CHEATS; cheats"
-
-alias dcheat21="sed -i.bak -e '21d' CHEATS; cheats"
-alias dcheat22="sed -i.bak -e '22d' CHEATS; cheats"
-alias dcheat23="sed -i.bak -e '23d' CHEATS; cheats"
-alias dcheat24="sed -i.bak -e '24d' CHEATS; cheats"
-alias dcheat25="sed -i.bak -e '25d' CHEATS; cheats"
-alias dcheat26="sed -i.bak -e '26d' CHEATS; cheats"
-alias dcheat27="sed -i.bak -e '27d' CHEATS; cheats"
-alias dcheat28="sed -i.bak -e '28d' CHEATS; cheats"
-alias dcheat29="sed -i.bak -e '29d' CHEATS; cheats"
-alias dcheat30="sed -i.bak -e '30d' CHEATS; cheats"
-
 # run cheats
 alias cheat1="sed 1!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 alias cheat2="sed 2!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
@@ -338,35 +361,15 @@ alias cheat8="sed 8!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to pas
 alias cheat9="sed 9!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 alias cheat10="sed 10!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 
-alias cheat11="sed 11!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat12="sed 12!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat13="sed 13!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat14="sed 14!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat15="sed 15!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat16="sed 16!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat17="sed 17!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat18="sed 18!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat19="sed 19!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat20="sed 20!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-
-alias cheat21="sed 21!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat22="sed 22!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat23="sed 23!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat24="sed 24!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat25="sed 25!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat26="sed 26!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat27="sed 27!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat28="sed 28!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat29="sed 29!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-alias cheat30="sed 30!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
-
 ### END CUSTOM CHEATS ###
 
 #########################
 # SPECIAL / IMPORTANT
 
 # i3 LOGOUT HACK
-alias logout='i3-msg exit'
+alias logout='rm -f ~/.my_command_ran; i3-msg exit'
+
+alias poweroff='systemctl poweroff -i'
 
 # hack to fix vmware tools on i3 if it didn't auto-load the things
 alias vmware-restart='vmware-user-suid-wrapper'
@@ -375,18 +378,8 @@ alias vmware-user='vmware-user-suid-wrapper'
 alias vmware-fix='vmware-user-suid-wrapper'
 
 #  NOTES
-# for using my todo list
-# using save5 / ret5 as a scratch space to jump forward and back between folders
-alias cnotes='ls ~/notes/;cat ~/notes/notes.txt | more'    
-alias notes='vnotes'                        
-alias bnotes='less -g ~/notes/notes.txt'
-alias allnotes='nvim ~/notes/archivenotes.txt'    
-alias vnotes='save5;cd ~/notes;nvim ~/notes/notes.txt;ret5'    
-alias editnotes='vnotes'    
-alias enotes='vnotes'                                   
-alias dnotes='echo USE delnotes to delete all notes'    
-alias delnotes='savenotes;rm ~/notes/notes.txt'
-alias savenotes='cp ~/notes/notes.txt ~/notes/prevnotes.txt;cat ~/notes/prevnotes.txt >> ~/notes/archivenotes.txt'
+alias notes='~/usertools/obsidian/Obsidian-1.7.4.AppImage &; disown'
+alias obsidian='~/usertools/obsidian/Obsidian-1.7.4.AppImage &; disown'
 
 # extract all of the things
 extract () {
@@ -449,35 +442,41 @@ alias mkill='kill -9'
 alias killall='kill -9'
 alias forcekill='kill -9'
 
+#mattermost
+alias mattermost='/opt/mattermost-desktop-5.9.0-linux-x64/mattermost-desktop'
+
 #ghidra
-alias ghidra='/home/user/usertools/ghidra_toolbox/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
+export GHIDRA_SERVER=''
+alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC/ghidraRun'
+export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC'
+# alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
+# export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.2_PUBLIC'
 
 #python virtual environment
-alias activate='source /home/user/usertools/user_pyenv_1/bin/activate'
-alias activate_venv='source /home/user/usertools/user_pyenv_1/bin/activate'
+alias activate='source /home/mike.defrancis/usertools/user_pyenv_1/bin/activate'
+alias activate_venv='source /home/mike.defrancis/usertools/user_pyenv_1/bin/activate'
 alias deactivate_venv='deactivate'
 
 #python
 alias python='python3'
 
 #signal
-alias signal='signal-desktop &'
+alias signal='signal-desktop &; disown'
 
 #vscode
 alias vscode='code'
 alias vs='code'
 
-alias lock='i3lock -i ~/.config/i3/voyager.png' 
+alias lock='rm -f ~/.my_command_ran; i3lock -i ~/.config/i3/voyager.png'
 
 # VIM
-alias vi='nvim'                                               
-alias v='nvim'
-alias vim='nvim -p'
-alias editbash='nvim ~/.bashrc'
-alias sourcebash='source ~/.bashrc'    
+alias vi='vim'
+alias v='vim'
+alias editbash='vim ~/.bashrc'
+alias sourcebash='source ~/.bashrc'
 alias sourcezsh='source ~/.zshrc'
-alias srczsh='source ~/.zshrc'    
-alias srcbash='source ~/.bashrc'    
+alias srczsh='source ~/.zshrc'
+alias srcbash='source ~/.bashrc'
 alias zsource='source ~/.zshrc'
 alias srcz='source ~/.zshrc'
 alias sourcez='source ~/.zshrc'
@@ -491,15 +490,15 @@ alias makec='make clean;ls'
 alias remake='make clean;ls;make'
 alias mmake='make |& tee latest_make_output.txt;ls'
 alias mclean='make clean;ls'
-alias i='ifconfig -a'    
-alias ifconfig='ifconfig -a'    
-alias ffind='find . -type f -name'    
-alias dfind='find . -type d -name'    
+alias i='ifconfig -a'
+alias ifconfig='ifconfig -a'
+alias ffind='find . -type f -name'
+alias dfind='find . -type d -name'
 alias afind='find . -name'
-alias agrep='grep --color -rni'
+alias agrep='rg --color -rni'
 alias aclip='xclip -sel clip'
 alias mclip='xclip -sel clip'
-alias -g AGREP="| grep --color -ni"
+alias -g AGREP="| rg --color -ni"
 alias -g ACLIP="| xclip -sel clip"
 alias -g XCLIP="| xclip"
 alias -g ALESS="| less"
@@ -509,11 +508,12 @@ alias -g APIPE="|& tee redirect.txt"
 
 ################################
 #         RANDOM STUFF
-alias src='source'    
+alias src='source'
 
-alias vihelp='echo use vi +[LineNum] [file] || vi [file]'    
-alias catl='cat -n' #cat with some lines numbers    
+alias vihelp='echo use vi +[LineNum] [file] || vi [file]'
+alias catl='cat -n' #cat with some lines numbers
 
+alias binwalkold='/usr/bin/binwalk'
 
 alias nc4242='netcat -l -p 4242'
 
@@ -529,11 +529,103 @@ alias kernelversion='uname -a'
 
 alias hex='ghex'
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias gmount='rclone mount gdrive: /home/mike.defrancis/usertools/google_drive &; disown'
+alias gdrive='rclone mount gdrive: /home/mike.defrancis/usertools/google_drive &; disown'
+alias gdrivemount='rclone mount gdrive: /home/mike.defrancis/usertools/google_drive &; disown'
+alias gunmount='fusermount -uz /home/mike.defrancis/usertools/google_drive'
+alias gdriveunmount='fusermount -uz /home/mike.defrancis/usertools/google_drive'
 
 PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
 
-feh --bg-scale ~/.config/i3/voyager.jpg
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ ! -f ~/.my_command_ran ]; then
+    feh --bg-scale ~/.config/i3/voyager.jpg
+
+    setxkbmap -option ctrl:nocaps
+
+    # Start ssh-agent if it’s not already running
+    if [ -z "${SSH_AUTH_SOCK}" ]; then
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_rsa
+        eval $(keychain --eval --agents ssh id_rsa)
+    fi
+    touch ~/.my_command_ran
+fi
+
+# THIS IS A COOL TRICK TO NAVIGATE
+function ranger-cd() {
+  tempfile="$(mktemp)"
+  ranger --choosedir="$tempfile" "${@:-$PWD}"
+  if chosen_dir="$(cat -- "$tempfile")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+    cd -- "$chosen_dir"
+  fi
+  rm -f -- "$tempfile"
+}
+
+# @TOTAL INSANITY. REMAP CD TO JUST USE FZF
+# If you run plain `cd`, use fzf to pick a directory
+function ff() {
+  if [[ $# -eq 0 ]]; then
+    local dir
+    dir=$(find . -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) && builtin cd "$dir"
+  else
+    builtin cd "$@"
+  fi
+}
+
+# Function to insert a dir path from fzf at cursor position
+fzf_insert_directory_path() {
+  local dir
+  dir=$(find . -type d 2>/dev/null | fzf) || return
+  if [[ -n "$dir" ]]; then
+    LBUFFER+="$dir"
+  fi
+  zle reset-prompt
+}
+zle -N fzf_insert_directory_path
+
+# Function to insert a file path from fzf at cursor position
+fzf_insert_file_path() {
+  # Use fzf to pick a file
+  local file
+  file=$(find . -type f 2>/dev/null | fzf) || return
+  if [[ -n "$file" ]]; then
+    # Insert it at the cursor
+    LBUFFER+="$file"
+  fi
+  zle reset-prompt
+}
+zle -N fzf_insert_file_path
+
+# MAP LEFTHAND CONTROL HOTKEYS FOR COMMONLY USED FUNCTIONS
+# *emacs-like behavior from inside of zsh*
+# bindkey -s '^f' 'ff\n'
+bindkey -s '^d' 'ranger-cd\n'
+bindkey -s '^x' 'vim\n'
+bindkey -s '^w' 'tig --all\n'
+bindkey -s '^e' 'nautilus . &\n'
+bindkey '^Z' fzf_insert_file_path
+bindkey '^F' fzf_insert_directory_path  # or pick a different hotkey
+bindkey -s '^v' 'find . -iname "*'
+bindkey -s '^g' 'rg -ni'
+bindkey -s '^t' 'python3\n'
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
+
+# bun completions
+[ -s "/home/mike.defrancis/.bun/_bun" ] && source "/home/mike.defrancis/.bun/_bun"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2024-12-05 15:31:16
+export PATH="$PATH:/home/mike.defrancis/.local/bin"
+
+unsetopt correct
+unsetopt correct_all
+
+source ~/.zsh/plugins/zsh-fzf-history-search/zsh-fzf-history-search.plugin.zsh
+# source ~/.zsh/plugins/fzf-tab/fzf-tab.plugin.zsh
+# source ~/.zsh/plugins/fzf-zsh-plugin/fzf-zsh-plugin.plugin.zsh
