@@ -10,16 +10,185 @@ esac
 
 export EDITOR='vim'
 
+# export LIBGL_ALWAYS_SOFTWARE=1
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
+
+
+# Enable the subsequent settings only in interactive sessions
+case $- in
+  *i*) ;;
+    *) return;;
+esac
+
+# Path to your oh-my-bash installation.
+export OSH='/home/mike.defrancis/.oh-my-bash'
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-bash is loaded.
+OSH_THEME="rana"
+
+# If you set OSH_THEME to "random", you can ignore themes you don't like.
+# OMB_THEME_RANDOM_IGNORED=("powerbash10k" "wanelo")
+# You can also specify the list from which a theme is randomly selected:
+# OMB_THEME_RANDOM_CANDIDATES=("font" "powerline-light" "minimal")
+
+# Uncomment the following line to use case-sensitive completion.
+# OMB_CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# OMB_HYPHEN_SENSITIVE="false"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_OSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you don't want the repository to be considered dirty
+# if there are untracked files.
+# SCM_GIT_DISABLE_UNTRACKED_DIRTY="true"
+
+# Uncomment the following line if you want to completely ignore the presence
+# of untracked files in the repository.
+# SCM_GIT_IGNORE_UNTRACKED="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.  One of the following values can
+# be used to specify the timestamp format.
+# * 'mm/dd/yyyy'     # mm/dd/yyyy + time
+# * 'dd.mm.yyyy'     # dd.mm.yyyy + time
+# * 'yyyy-mm-dd'     # yyyy-mm-dd + time
+# * '[mm/dd/yyyy]'   # [mm/dd/yyyy] + [time] with colors
+# * '[dd.mm.yyyy]'   # [dd.mm.yyyy] + [time] with colors
+# * '[yyyy-mm-dd]'   # [yyyy-mm-dd] + [time] with colors
+# If not set, the default value is 'yyyy-mm-dd'.
+# HIST_STAMPS='yyyy-mm-dd'
+
+# Uncomment the following line if you do not want OMB to overwrite the existing
+# aliases by the default OMB aliases defined in lib/*.sh
+# OMB_DEFAULT_ALIASES="check"
+
+# Would you like to use another custom folder than $OSH/custom?
+# OSH_CUSTOM=/path/to/new-custom-folder
+
+# To disable the uses of "sudo" by oh-my-bash, please set "false" to
+# this variable.  The default behavior for the empty value is "true".
+OMB_USE_SUDO=true
+
+# To enable/disable display of Python virtualenv and condaenv
+# OMB_PROMPT_SHOW_PYTHON_VENV=true  # enable
+# OMB_PROMPT_SHOW_PYTHON_VENV=false # disable
+
+# To enable/disable Spack environment information
+# OMB_PROMPT_SHOW_SPACK_ENV=true  # enable
+# OMB_PROMPT_SHOW_SPACK_ENV=false # disable
+
+# Which completions would you like to load? (completions can be found in ~/.oh-my-bash/completions/*)
+# Custom completions may be added to ~/.oh-my-bash/custom/completions/
+# Example format: completions=(ssh git bundler gem pip pip3)
+# Add wisely, as too many completions slow down shell startup.
+completions=(
+  git
+  composer
+  ssh
+)
+
+# Which aliases would you like to load? (aliases can be found in ~/.oh-my-bash/aliases/*)
+# Custom aliases may be added to ~/.oh-my-bash/custom/aliases/
+# Example format: aliases=(vagrant composer git-avh)
+# Add wisely, as too many aliases slow down shell startup.
+aliases=(
+  general
+)
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
+# Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  bashmarks
+)
+
+# Which plugins would you like to conditionally load? (plugins can be found in ~/.oh-my-bash/plugins/*)
+# Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
+# Example format:
+#  if [ "$DISPLAY" ] || [ "$SSH" ]; then
+#      plugins+=(tmux-autoattach)
+#  fi
+
+# If you want to reduce the initialization cost of the "tput" command to
+# initialize color escape sequences, you can uncomment the following setting.
+# This disables the use of the "tput" command, and the escape sequences are
+# initialized to be the ANSI version:
+#
+#OMB_TERM_USE_TPUT=no
+
+source "$OSH"/oh-my-bash.sh
+
+# User configuration
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-bash libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-bash
+# users are encouraged to define aliases within the OSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias bashconfig="mate ~/.bashrc"
+# alias ohmybash="mate ~/.oh-my-bash"
+
+
+
+
+
+
+
+
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTFILESIZE=200000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -31,6 +200,11 @@ shopt -s checkwinsize
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+alias binwalkold='/usr/bin/binwalk'
+
+alias opera='opera &'
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -80,7 +254,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
@@ -113,21 +286,29 @@ if ! shopt -oq posix; then
   fi
 fi
 
+source ~/usertools/user_pyenv_1/bin/activate
+
+
 ####################################
 #       GIT AND MERCURIAL
 
 # i3
 alias workspace='i3 rename workspace to '
 
+alias i3show='wmctrl -l'
+alias psall='ps -e'
+
 # git stuff
+alias ggraph='gitk &'
 alias gcommit='git commit -m'
 alias gcom='git commit -m'
 alias gpush='git push'
 alias gcheckout='git checkout'
-alias gpull='git pull'
+alias gpull='git pull --rebase'
 alias gitstat='git status'
 alias gitstatus='git status'
 alias gstat='git status'
+alias gsta='git status'
 alias gitbranch='git branch'
 alias gitbr='git branch'
 alias gbranch='git branch'
@@ -160,13 +341,16 @@ alias hgpull='hg pull'
 ##############################
 #         NAV SYSTEM
 
-# place a tunnel in the user home 
+# i3
+alias workspace='i3 rename workspace to '
+
+# place a tunnel in the user home
 # redirect the tunnel to current location
 alias tun='rm ~/tun;ln -sf "$(pwd)" ~/tun'
 alias tunnel='rm ~/tunnel;ln -sf "$(pwd)" ~/tunnel'
 alias tunnel2='rm ~/tunnel2;ln -sf "$(pwd)" ~/tunnel2'
 alias tunnel3='rm ~/tunnel3;ln -sf "$(pwd)" ~/tunnel3'
-       
+
 alias ff='nautilus .'
 alias folder='nautilus --no-desktop .'
 alias folders='nautilus --no-desktop .'
@@ -238,12 +422,20 @@ alias ret4='cdb -g save4'
 alias save5='cdb -d save5; cdb -c save5'
 alias ret5='cdb -g save5'
 
+alias savei3portal='cdb -d i3portal; cdb -c i3portal'
+alias reti3portal='cdb -g i3portal'
+
 alias mark='cdb -c'
+alias bookmark='cdb -c'
+alias bookmarks='cdb -l'
+alias delbookmark='cdb -d'
+alias delmark='cdb -d'
+alias gotobookmark='cdb -g'
+alias goto='cdb -g'
 
 alias places='cdb -l'
 alias marks='cdb -l'
 alias saves='cdb -l'
-alias goto='cdb -g'
 
 #some aliases to use cdb
 alias bmark='cdb -c'
@@ -254,6 +446,7 @@ alias bmarks='cdb -l'
 alias bmks='cdb -l'
 alias bdel='cdb -d'
 
+
 ##############################
 #         CHEAT SYSTEM
 
@@ -263,8 +456,8 @@ alias cheat="cheats"
 alias echeats="vi ~/.arc/cheats.txt"
 alias ccheats="cat ~/.arc/cheats.txt"
 alias acheat="echo \"use 'echo !! >> CHEATS' or 'echo [CTRL-R] >> CHEATS' or 'echo [UP ARROW] >> CHEATS'\""
-alias dcheat="sed -i '$ d' ~/.arc/cheats.txt; cheats" 
-alias pushcheats="cat ~/.arc/cheats.txt >> ~/.arc/oldcheats.txt;rm ~/.arc/cheats.txt; touch ~/.arc/cheats.txt; cheats" 
+alias dcheat="sed -i '$ d' ~/.arc/cheats.txt; cheats"
+alias pushcheats="cat ~/.arc/cheats.txt >> ~/.arc/oldcheats.txt;rm ~/.arc/cheats.txt; touch ~/.arc/cheats.txt; cheats"
 
 # archival cheatsheet
 alias oldcheats="echo 'ARCHIVE OF CHEATS'; test -f ~/.arc/oldcheats.txt && less -N ~/.arc/oldcheats.txt"
@@ -340,7 +533,7 @@ alias cheat29="sed 29!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to p
 alias cheat30="sed 30!d CHEATS | xclip; echo \"MIDDLE MOUSE or SHIFT+INSERT to paste cmd\""
 
 ### END CUSTOM CHEATS ###
-                         
+
 #########################
 # SPECIAL / IMPORTANT
 # i3 LOGOUT HACK
@@ -348,23 +541,26 @@ alias logout='i3-msg exit'
 
 # hack to fix vmware tools on i3 if it didn't auto-load the things
 alias vmware-restart='vmware-user-suid-wrapper'
-alias vmware='vmware-user-suid-wrapper'
+# alias vmware='vmware-user-suid-wrapper'
 alias vmware-user='vmware-user-suid-wrapper'
 alias vmware-fix='vmware-user-suid-wrapper'
 
 #  NOTES
+alias notes='gdrive; ~/usertools/obsidian/Obsidian-1.7.4.AppImage &'
+alias obsidian='gdrive; ~/usertools/obsidian/Obsidian-1.7.4.AppImage &'
+# OLD BELOW. USING OBSIDIAN NOW
 # for using my todo list
 # using save5 / ret5 as a scratch space to jump forward and back between folders
-alias cnotes='ls ~/notes/;cat ~/notes/notes.txt | more'    
-alias notes='vnotes'                        
-alias bnotes='less -g ~/notes/notes.txt'
-alias allnotes='vim ~/notes/archivenotes.txt'    
-alias vnotes='save5;cd ~/notes;vim ~/notes/notes.txt;ret5'    
-alias editnotes='vnotes'    
-alias enotes='vnotes'                                   
-alias dnotes='echo USE delnotes to delete all notes'    
-alias delnotes='savenotes;rm ~/notes/notes.txt'
-alias savenotes='cp ~/notes/notes.txt ~/notes/prevnotes.txt;cat ~/notes/prevnotes.txt >> ~/notes/archivenotes.txt'
+# alias cnotes='ls ~/notes/;cat ~/notes/notes.txt | more'
+# alias notes='vnotes'
+# alias bnotes='less -g ~/notes/notes.txt'
+# alias allnotes='vim ~/notes/archivenotes.txt'
+# alias vnotes='save5;cd ~/notes;vim ~/notes/notes.txt;ret5'
+# alias editnotes='vnotes'
+# alias enotes='vnotes'
+# alias dnotes='echo USE delnotes to delete all notes'
+# alias delnotes='savenotes;rm ~/notes/notes.txt'
+# alias savenotes='cp ~/notes/notes.txt ~/notes/prevnotes.txt;cat ~/notes/prevnotes.txt >> ~/notes/archivenotes.txt'
 
 # extract all of the things
 extract () {
@@ -430,23 +626,49 @@ alias zz='zsh'
 
 alias mkill='kill -9'
 alias killall='kill -9'
-alias forcekill='kill -9'
+alias forcekill='kill -9'g
+
+#ghidra
+export GHIDRA_SERVER='ghidra.zetier.com'
+alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC/ghidraRun'
+export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC'
+# alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
+# export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.2_PUBLIC'
+
+#python virtual environment
+alias activate='source ~/usertools/user_pyenv_1/bin/activate'
+alias activate_venv='source ~/usertools/user_pyenv_1/bin/activate'
+alias deactivate_venv='deactivate'
+
+#python
+alias python='python3'
+
+#signal
+alias signal='signal-desktop &'
+
+#vscode
+alias vscode='code'
+alias vs='code'
+
+alias lock='i3lock -i ~/.config/i3/voyager.png'
+
 
 # VIM
-alias vi='vim'                                               
+alias vi='vim'
 alias v='vim'
 alias vim='vim -p'
-alias editbash='vim ~/.bashrc'      
-alias srcbash='source ~/.bashrc'    
+alias editbash='vim ~/.bashrc'
+alias srcbash='source ~/.bashrc'
 alias zsource='source ~/.zshrc'
-alias srczsh='source ~/.zshrc'    
-alias sourcebash='source ~/.bashrc'    
-alias sourcezsh='source ~/.zshrc'    
+alias srczsh='source ~/.zshrc'
+alias sourcebash='source ~/.bashrc'
+alias sourcezsh='source ~/.zshrc'
 alias srcz='source ~/.zshrc'
 alias sourcez='source ~/.zshrc'
 
 ###########################
 #  FIND, FIND, GREP
+
 
 # save standard err and standard out to make output file:
 alias make='make'
@@ -454,10 +676,10 @@ alias makec='make clean;ls'
 alias remake='make clean;ls;make'
 alias mmake='make |& tee latest_make_output.txt;ls'
 alias mclean='make clean;ls'
-alias i='ifconfig -a'    
-alias ifconfig='ifconfig -a'    
-alias ffind='find . -type f -name'    
-alias dfind='find . -type d -name'    
+alias i='ifconfig -a'
+alias ifconfig='ifconfig -a'
+alias ffind='find . -type f -name'
+alias dfind='find . -type d -name'
 alias afind='find . -name'
 alias agrep='grep --color -rni'
 alias aclip='xclip -sel clip'
@@ -465,10 +687,11 @@ alias mclip='xclip -sel clip'
 
 ################################
 #         RANDOM STUFF
-alias src='source'    
 
-alias vihelp='echo use vi +[LineNum] [file] || vi [file]'    
-alias catl='cat -n' #cat with some lines numbers    
+alias src='source'
+
+alias vihelp='echo use vi +[LineNum] [file] || vi [file]'
+alias catl='cat -n' #cat with some lines numbers
 
 
 alias nc4242='netcat -l -p 4242'
@@ -485,11 +708,30 @@ alias kernelversion='uname -a'
 
 alias hex='ghex'
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+alias gmount='rclone mount gdrive: /home/mike.defrancis/usertools/google_drive &'
+alias gdrive='rclone mount gdrive: /home/mike.defrancis/usertools/google_drive &'
+alias gdrivemount='rclone mount gdrive: /home/mike.defrancis/usertools/google_drive &'
+alias gunmount='fusermount -uz /home/mike.defrancis/usertools/google_drive'
+alias gdriveunmount='fusermount -uz /home/mike.defrancis/usertools/google_drive'
 
-PATH=$PATH:/home/dev/010editor;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 87FF8EFC-483D-BCAA-D67D-735CF60410D1 E7E8397D-1D9A-AC03-24EE-9E64B4083A05
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 feh --bg-scale ~/.config/i3/voyager.jpg
 
+setxkbmap -option ctrl:nocaps
+
+# Start ssh-agent if it’s not already running
+if [ -z "$SSH_AUTH_SOCK" ]; then
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+fi
+eval $(keychain --eval --agents ssh id_rsa)
+
+touch ~/.onetime_exec_completed
+
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
+
+# Created by `pipx` on 2024-12-05 15:31:27
+export PATH="$PATH:/home/mike.defrancis/.local/bin"
+. "$HOME/.cargo/env"

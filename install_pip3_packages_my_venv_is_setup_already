@@ -1,4 +1,5 @@
 #!/bin/sh
+pip3 install chatgpt-cli-tool
 pip3 install future
 pip3 install six
 pip3 install ply

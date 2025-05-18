@@ -180,6 +180,8 @@ alias snap='flameshot &; disown'
 ####################################
 #       GIT AND MERCURIAL
 
+alias gconfig='~/usertools/zetier_helpers/gitconfig.sh'
+
 # git stuff
 alias ggraph='gitk --all &; disown'
 alias gk='gitk --all'
@@ -197,6 +199,7 @@ alias gpull='git pull --rebase'
 alias gitstat='git status'
 alias gitstatus='git status'
 alias gstat='git status'
+alias gsta='git status'
 alias gitbranch='git branch'
 alias gitbr='git branch'
 alias gbranch='git branch'
@@ -298,6 +301,10 @@ alias ret4='cdb -g save4'
 
 alias save5='cdb -d save5; cdb -c save5'
 alias ret5='cdb -g save5'
+
+alias savei3portal='cdb -d i3portal; cdb -c i3portal'
+alias reti3portal='cdb -g i3portal'
+
 
 alias mark='cdb -c'
 alias bookmark='cdb -c'
@@ -446,7 +453,7 @@ alias forcekill='kill -9'
 alias mattermost='/opt/mattermost-desktop-5.9.0-linux-x64/mattermost-desktop'
 
 #ghidra
-export GHIDRA_SERVER=''
+export GHIDRA_SERVER='ghidra.zetier.com'
 alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC/ghidraRun'
 export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC'
 # alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
@@ -468,6 +475,7 @@ alias vscode='code'
 alias vs='code'
 
 alias lock='rm -f ~/.my_command_ran; i3lock -i ~/.config/i3/voyager.png'
+alias jj='rm -f ~/.my_command_ran; i3lock -i ~/.config/i3/voyager.png'
 
 # VIM
 alias vi='vim'
@@ -602,17 +610,22 @@ zle -N fzf_insert_file_path
 # *emacs-like behavior from inside of zsh*
 # bindkey -s '^f' 'ff\n'
 bindkey -s '^d' 'ranger-cd\n'
-bindkey -s '^x' 'vim\n'
-bindkey -s '^w' 'tig --all\n'
-bindkey -s '^e' 'nautilus . &\n'
+# bindkey -s '^q' 'exit\n'
+bindkey -s '^@' 'vim\n'
+bindkey -s '^w' 'gitk --all\n'
+# bindkey "^[[1;6F" "code . &\n"
+# bindkey -s '^x' 'vim\n'
 bindkey '^Z' fzf_insert_file_path
-bindkey '^F' fzf_insert_directory_path  # or pick a different hotkey
+bindkey -s '^f' 'ranger-cd ~/\n'
+# bindkey '^D' fzf_insert_directory_path  # or pick a different hotkey
 bindkey -s '^v' 'find . -iname "*'
 bindkey -s '^g' 'rg -ni'
 bindkey -s '^t' 'python3\n'
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
+
+# alias delpycache='find . -type d -name '__pycache__' -exec rm -r {} && find . -type f -name '*.pyc' -delete'
 
 # bun completions
 [ -s "/home/mike.defrancis/.bun/_bun" ] && source "/home/mike.defrancis/.bun/_bun"
