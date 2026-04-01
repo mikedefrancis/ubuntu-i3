@@ -35,15 +35,17 @@ floating_modifier $mod
 # bindsym $mod+Return exec gnome-terminal --command 'vim'
 bindsym $mod+f exec firefox
 bindsym $mod+z exec gnome-terminal --command python3
-bindsym $mod+s exec flameshot gui
+bindsym $mod+s exec gnome-terminal --command bc
 bindsym $mod+t exec code
 bindsym $mod+r exec chromium
 bindsym $mod+g exec brave
 
-# bindsym $mod+c exec gnome-terminal
-bindsym $mod+Return exec i3lock -i '/home/mike.defrancis/.config/i3/voyager.png'
+bindsym $mod+space exec gnome-terminal --command vim
 
-bindsym $mod+space exec gnome-terminal
+# bindsym $mod+c exec gnome-terminal
+bindsym $mod+o exec i3lock -i '/home/mike.defrancis/.config/i3/voyager.png'
+
+bindsym $mod+Return exec gnome-terminal
 
 # Cycle to the next workspace
 bindsym $mod+Tab workspace next
@@ -249,7 +251,7 @@ bindsym $mod+Ctrl+h resize grow width 10 px or 10 ppt
 # @MPD startup for vmware
 # this is okay if its not installed no harm done
 exec vmware-user-suid-wrapper
-exec feh --bg-scale ~/.config/i3/voyager.jpg
+exec feh --bg-scale ~/.config/i3/voyager2.jpg
 
 # @MPD startup programs
 exec --no-startup-id i3-msg 'workspace 0 worker; exec gnome-terminal'
