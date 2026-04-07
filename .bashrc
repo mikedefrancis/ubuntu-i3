@@ -32,8 +32,12 @@ export PATH
 
 export EDITOR='vim'
 
-alias python='python3.13'
-alias pip='pip3.13'
+# alias python='python3.13'
+# alias pip='pip3.13'
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # setxkbmap -option caps:none
 # export LIBGL_ALWAYS_SOFTWARE=1
@@ -120,6 +124,11 @@ cd() {
 alias binwalkold='/usr/bin/binwalk'
 alias opera='opera &'
 alias xx='exit'
+alias x='exit'
+alias xxx='exit'
+alias xxxx='exit'
+
+
 
 # set variable identifying the chroot you work in
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
@@ -427,10 +436,8 @@ alias forcekill='kill -9'
 
 # ghidra
 export GHIDRA_SERVER='ghidra.zetier.com'
-alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC/ghidraRun'
-export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.1_PUBLIC'
-# alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.2_PUBLIC/ghidraRun'
-# export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.1.2_PUBLIC'
+alias ghidra='/home/mike.defrancis/usertools/ghidra/ghidra_11.4.3_PUBLIC/ghidraRun'
+export GHIDRA_ROOT='/home/mike.defrancis/usertools/ghidra/ghidra_11.4.3_PUBLIC'
 
 # python virtual environment
 alias activate='source ~/usertools/user_pyenv_1/bin/activate'
